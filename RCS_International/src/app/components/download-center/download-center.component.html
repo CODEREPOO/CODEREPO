@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-center " style="height: auto">
+    <div class=" pt-3 pb-3 row w-100">
+        <div class="col-lg-2 col-md-2 col-sm-1"></div>
+        <div class="col-lg-8 col-md-8 col-sm-11 col-12">
+            <mat-card style="background-color: rgb(255, 255, 255); border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            ">
+                <mat-card-header class="bg-secondary pb-2 text-white"
+                    style="border-top-left-radius: 20px; border-top-right-radius: 20px; font-size: 2rem;">
+                    Download Center
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <mat-card-content>
+                    <div class="p-3 table-responsive">
+                        <table class=" table text-center table-sm">
+                            <thead style="font-size: larger;">
+                                <tr>
+                                    <th>File Name</th>
+                                    <th>Download</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="UserData">
+                                <tr *ngFor="let item of UserData;let i = index">
+                                    <td>
+                                        <span class="title" *ngIf="item.file_path">{{item.file_path}}</span>
+                                        <span class="title text-danger" *ngIf="!item.file_path">Wait a Second File is Generating.!</span>
+                                    </td>
+                                    <td *ngIf="item.done_status == 1"><a (click)="download(i)"><span class="material-symbols-outlined icn text-success">
+                                        download
+                                        </span></a></td>
+                                    <td *ngIf="item.done_status == 0" style="cursor: wait;"><span
+                                            class="material-symbols-outlined icn text-danger" style="cursor: wait;">
+                                            edit_document
+                                        </span></td>
+                                </tr>
+                            </tbody>
+                            <tbody *ngIf="!UserData">
+                                <!-- <tr class="text-secondary">
+                                    <!-- <td colspan="9"> Please Select From date and To date!</td>
+                                </tr> -->
+                                <tr>
+                                    <td class="p-0 m-0" colspan="9">
+                                        <div class="d-flex justify-content-center noReport">
+                                            <img src="../../../assets/bgImgs/file_Download.jpg"
+                                                alt="Please Select From date and To date!" width="400" height="370">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <!-- <div class="col-lg-2 col-md-2"></div> -->
+
+    </div>
+</div>

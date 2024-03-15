@@ -1,0 +1,157 @@
+<div class="container-fluid">
+    <div class="toprow mt-2 pl-2 ">
+        <div class="mt-3">
+            <span class="mt-2" style="font-size: x-large; font-weight: bold;">
+                RCS Campaign List
+            </span>
+
+        </div>
+    </div>
+    <hr>
+    
+    <div class="campaign-list table-responsive pt-3 pb-3">
+        <div class="dateform">
+            <div class=" inputbox form-group">
+                <input [matDatepicker]="picker" [(ngModel)]="FromDate" id="fdata" class="formcontrol"
+                    placeholder="Enter From Date." (click)="picker.open()">
+                <label for="fdata">From Date</label>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div class="inputbox form-group">
+                <input [matDatepicker]="picker1" [(ngModel)]="ToDate" id="tdate" class="formcontrol"
+                    (click)="picker1.open()" placeholder="Enter To Date.">
+                <label for="tdata">To Date</label>
+                <mat-datepicker #picker1></mat-datepicker>
+            </div>
+            <button mat-button color="primary" type="submit" (click)="get()" class="bttn"><strong>Get
+                    Reports</strong></button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>No.Of RCS</th>
+                    <th>Received Time</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="campaignList">
+                <tr *ngFor="let camp of campaignList;let i as index;">
+                    <td>
+                        <span class="cname">{{camp.campaign_name}}</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-P">{{camp.no_of_rcs}}</span>
+                    </td>
+                    <td>
+                        <span class="text-P">{{camp.recv_timestamp | date : 'dd/MM/YYYY hh:mm:ss'}}</span>
+                    </td>
+                    <td>
+                        <span class="btns">
+                            <!-- <span class="icn material-symbols-outlined">
+                                edit
+                            </span> -->
+    <!-- <span class="br"></span>
+                            <span class=" icn material-symbols-outlined">
+                                preview
+                            </span> -->
+    <!-- <span class="br"></span> -->
+                            <a (click)="download(i)">
+                                <span class="icn material-symbols-outlined">
+                                    download
+                                </span>
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!campaignList">
+                <tr class="bg-light fs20">
+                    <td colspan="4">No Data is Available.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+
+
+
+  <!--  <div class="w-100 m-5">
+        <mat-stepper class="bg-light " style="height: 100vh;" orientation="vertical"  linear #stepper>
+            <mat-step>
+                <!-- <mat-step [stepControl]="firstFormGroup"> 
+                <!-- <form [formGroup]="firstFormGroup"> 
+                <form>
+                    <ng-template matStepLabel>Fill out your name</ng-template>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <!-- <mat-step [stepControl]="secondFormGroup"> 
+                <!-- <form [formGroup]="secondFormGroup"> 
+                <form>
+                    <ng-template matStepLabel>Fill out your address</ng-template>
+                    <mat-form-field>
+                        <mat-label>Address</mat-label>
+                        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                </div>
+            </mat-step>
+        </mat-stepper>
+    </div>
+-->
+    <!-- <div class="heading">
+            <span>
+                <h2>Campaign</h2>
+            </span>
+            <span>
+                <h2>No.OF RCS</h2>
+            </span>
+            <span>
+                <h2>Received Time Stamp</h2>
+            </span>
+            <span>
+                <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </h2>
+            </span>
+        </div>
+        <hr class="mt-0">
+        <div class="record" *ngFor="let camp of campaignList">
+            <span class="cname">{{camp.campaign_name}}</span>
+            <span><span class="badge badge-success">{{camp.no_of_rcs}}</span>
+            </span>
+            <span>{{camp.recv_timestamp}}</span>
+            <span class="btns">
+                <span class="icn material-symbols-outlined">
+                    edit
+                </span>
+                <span class="br"></span>
+                <span class=" icn material-symbols-outlined">
+                    preview
+                </span>
+                <span class="br"></span>
+                <span class="icn material-symbols-outlined">
+                    download
+                </span>
+            </span>
+        </div> -->
+</div>

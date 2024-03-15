@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.rightside{
+    border-left: 3px solid lightgrey;
+    height: auto;
+}
+
+.leftmain{
+    margin-top: 30px;
+}
+.leftmain ul{
+    width: auto;
+}
+.leftmain ul li{
+    list-style: none;
+    margin: 20px;
+}
+.leftmain ul li button{
+    padding: 10px;
+    border-radius: 10px;
+}
+.btnbg{
+    background-color: #3626A0;
+    color: #fff;
+}

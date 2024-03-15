@@ -1,0 +1,116 @@
+<div class="main ">
+    <!-- <div class="center"> -->
+    <mat-tab-group class="box" animationDuration="500ms" mat-stretch-tabs="false" mat-align-tabs="start"
+        color="success">
+        <mat-tab label="Profile">
+            <!-- <hr class="mt-0 pt-0"> -->
+            <!-- <div class="profileSec">
+                <div class="main1">
+                    <div class="box1">
+                        <span><label for="apikey">API-KEY &nbsp;&nbsp;:&nbsp;</label></span>
+                        <span class="api text-secondary">{{apikey}}&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span><a class="btn btn-sm btn-success text-white " (click)="reGenAPI()"><span
+                                    class="material-symbols-outlined mr-2">
+                                    autorenew
+                                </span>Re-Generate</a></span>
+                    </div>
+                </div>
+            </div> -->
+            <div class="profileSec">
+                <div class="main1">
+                    <div class="border p-3 bg-white rounded">
+                        <!-- <span class="material-symbols-outlined usericn" style="font-size: 10rem;">
+                            account_circle
+                        </span> -->
+                        <img src="../../../assets/Images/{{pagelogo}}" alt="Your lOGO" class="profileImg">
+                    </div>
+                    <br>
+                    <table class="table bg-white border w-auto">
+                        <tr>
+                            <th>User Name</th>
+                            <td>:</td>
+                            <td title="{{UserName}}">{{UserName}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>API-KEY</th>
+                            <td>:</td>
+                            <td title="{{apikey}}">{{apikey}}</td>
+                            <td><span class="text-info" *ngIf="txtcopied">Copied</span>
+                                <a class="text-info" *ngIf="!txtcopied" (click)="apikeycopy()" style="cursor: pointer;" [cdkCopyToClipboard]="apikey"><span class="material-symbols-outlined" title="Copy {{apikey}}">
+                                        content_copy
+                                    </span></a></td>
+                            <td><a class="text-success " style="cursor: pointer;" title="Re-Generate API-KEY"
+                                    (click)="reGenAPI()"><i class='bx bx-refresh bx-tada'
+                                        style='font-size: xx-large;'></i></a></td>
+                            <!-- <td><a class="btn btn-sm btn-success text-white " (click)="reGenAPI()"><span
+                            class="material-symbols-outlined mr-2">
+                            autorenew
+                        </span></a></td> -->
+                            <!-- </span>Re-Generate</a></td> -->
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Change Password" class="cpwdSec">
+            <!-- <hr class="mt-0 pt-0"> -->
+            <div class="pmain2">
+                <div class="main2">
+                    <form [formGroup]="chngPwd" (ngSubmit)="changePwd()">
+                        <div class="form-group" data-aos="slide-left" data-aos-duration="500">
+                            <label for="currpwd">Current Password :</label>
+                            <input type="password" class="form-control form-control-lg"
+                                placeholder="Enter Current Password..." id="currpwd" formControlName="currpwd">
+                            <div
+                                *ngIf="chngPwd.controls['currpwd'].invalid  && (chngPwd.controls['currpwd'].dirty || chngPwd.controls['currpwd'].touched)">
+                                <span class="err"
+                                    *ngIf="chngPwd.controls['currpwd'].hasError('required')"><strong>Please Enter
+                                        Current Password</strong></span>
+                                <!-- <span style="color: red;" *ngIf="chngPwd.controls['name'].hasError('')">Email should be in
+                            this
+                            pattern [A-Z, a-z, 123, &#64;]</span> -->
+                            </div>
+                        </div>
+                        <div class="form-group" data-aos="slide-left" data-aos-duration="1000">
+                            <label for="newpwd">New Password :</label>
+                            <input type="password" class="form-control form-control-lg"
+                                placeholder="Enter New Password..." id="newpwd" formControlName="newpwd">
+                            <div
+                                *ngIf="chngPwd.controls['newpwd'].invalid  && (chngPwd.controls['newpwd'].dirty || chngPwd.controls['newpwd'].touched)">
+                                <span class="err" *ngIf="chngPwd.controls['newpwd'].hasError('required')"><strong>Please
+                                        Enter
+                                        Confirm Password</strong></span>
+                                <!-- <span style="color: red;" *ngIf="chngPwd.controls['name'].hasError('')">Email should be in
+                            this
+                            pattern [A-Z, a-z, 123, &#64;]</span> -->
+                            </div>
+                        </div>
+                        <div class="form-group" data-aos="slide-left" data-aos-duration="1500">
+                            <label for="confpwd">Confirm Password :</label>
+                            <input type="password" class="form-control form-control-lg"
+                                placeholder="Enter Confirm Password..." id="confpwd" formControlName="cnfmpwd">
+                            <div
+                                *ngIf="chngPwd.controls['cnfmpwd'].invalid  && (chngPwd.controls['cnfmpwd'].dirty || chngPwd.controls['cnfmpwd'].touched)">
+                                <span class="err"
+                                    *ngIf="chngPwd.controls['cnfmpwd'].hasError('required')"><strong>Please Enter
+                                        Confirm Password</strong></span>
+                                <!-- <span style="color: red;" *ngIf="chngPwd.controls['name'].hasError('')">Email should be in
+                            this
+                            pattern [A-Z, a-z, 123, &#64;]</span> -->
+                            </div>
+                        </div>
+                        <div class="subbtn" *ngIf="btnShow" data-aos="fade" data-aos-delay="400"
+                            data-aos-duration="500">
+                            <button type="submit" [disabled]="!chngPwd.valid" class="btn btn-outline-primary">Change
+                                Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+    <!-- </div> -->
+</div>

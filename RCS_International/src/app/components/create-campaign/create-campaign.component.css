@@ -1,0 +1,27 @@
+.container-fluid::-webkit-scrollbar{
+    display: none;
+}
+.form-control{
+    border-radius: 7px;
+    padding-left: 15px;
+}
+
+.btn{
+    border-radius: 8px;
+}
+
+.scrll::-webkit-scrollbar
+{
+    display: none;
+}
+
+.inp:focus{
+    outline: none;
+}
+
+.btn-h:hover{
+    background-color: rgb(54, 38, 160);
+    color: white;
+    font-weight: normal;
+    transition: .3s ease-in-out;
+}

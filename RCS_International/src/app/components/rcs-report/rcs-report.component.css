@@ -1,0 +1,247 @@
+.container-fluid {
+    width: 100%;
+}
+
+
+
+li:hover {
+    border-bottom: 1px solid #000;
+    transition: 3s ease-in-out;
+}
+
+.report {
+    border-radius: 30px;
+    padding: 5px;
+    padding-left: 15px;
+    color: whitesmoke;
+}
+
+
+.example-full-width {
+    width: 100%;
+
+}
+
+td {
+    border-right: 1px solid lightgray;
+    padding: 10px;
+    width: auto;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+tbody{
+    background-color: #fff;
+}
+
+table{
+    width: 100%;
+    table-layout: auto;
+}
+
+mat-form-field {
+    height: 30px;
+    padding: 0;
+}
+
+mat-select {
+    font-size: 20px;
+}
+
+.th {
+    padding: 15px;
+    /* background-color: rgba(172, 255, 47, 0.507);*/
+    font-size: 22px;
+    font-weight: 500;
+    border-right: 1px solid lightgray;
+    /* text-align: center; */
+    /* border: 1px solid black; */
+    letter-spacing: 0.4mm;
+}
+
+/* 
+::ng-deep .mat-calendar {
+    background-color: #3626a0d8;
+    font-weight: 600;
+    font-size: larger;
+    border-radius: 30px;
+}
+
+::ng-deep .mat-datepicker-content  {
+    display: block;
+    border-radius: 30px !important;
+}
+
+
+::ng-deep .mat-calendar-body-label,
+::ng-deep .mat-calendar-table-header,
+::ng-deep .mat-datepicker-toggle,
+::ng-deep .mat-datepicker-content .mat-calendar-next-button,
+::ng-deep .mat-datepicker-content .mat-calendar-previous-button,
+::ng-deep .mat-calendar-header {
+    color: #fff;
+}
+
+::ng-deep .mat-mdc-button.mat-unthemed{
+    --mdc-text-button-label-text-color : #fff !important;
+}
+
+
+::ng-deep .mat-calendar-arrow {
+    border-top-color: white;
+    fill: rgb(255 255 255);
+}
+
+::ng-deep .mat-calendar-body-cell-content {
+    color: #fff;
+} */
+
+
+
+/* .inputbox {
+    position: relative;
+}
+
+.inputbox input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 3px solid gainsboro;
+    border-radius: 15px;
+    background: rgb(255, 255, 255);
+    outline: none;
+    font-size: 1.2em;
+}
+
+.inputbox span {
+    position: absolute;
+    left: 15px;
+    padding: 5px;
+    pointer-events: none;
+    font-size: 1em;
+    transition: .5s;
+}
+
+
+
+.inputbox input:valid~span,
+.inputbox input:focus~span {
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.95em;
+    background: rgba(255, 255, 255, 0.774);
+    font-weight: bold;
+    letter-spacing: 0.8mm;
+    text-transform: uppercase;
+    padding: 0 20px;
+    /* border-left: 1px solid #000;
+    border-right: 1px solid #000;
+} */
+
+
+
+.inputbox {
+    position: relative;
+}
+
+.inputbox .select,
+.inputbox input {
+    /* width: 100%;
+    padding: 25px 20px 7px 20px;
+    border: 2px solid gainsboro;
+    border-radius: 15px;
+    background: rgb(255, 255, 255);
+    outline: none;
+    font-size: 1.2em;
+     */
+
+
+    width: 100%;
+    padding: 25px 15px 10px;
+    font-size: 20px;
+    color: #000000;
+    /* margin-bottom: 30px; */
+    border: none;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    outline: none;
+    background: white;
+}
+
+/* .inputbox textarea {
+    outline: none;
+    resize: none;
+    width: 100%;
+    padding: 30px 15px 10px;
+    font-size: 20px;
+    color: #000000;
+    /* margin-bottom: 30px; 
+    border: none;
+    border: 2px solid #3626A0;
+    border-radius: 10px;
+    outline: none;
+    background: transparent;
+    /* min-height: 250px; }
+
+textarea::-webkit-scrollbar {
+    width: 0px;
+} */
+
+.inputbox span,
+mat-label {
+    position: absolute;
+    left: 15px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    transition: .5s;
+}
+
+.inputbox span,
+mat-label {
+    top: -7px;
+    left: 5px;
+    color: #686868;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.2mm;
+    font-size: 15px;
+}
+
+.inputbox .spn {
+    top: -5px;
+    left: 5px;
+    color: #686868;
+    text-transform: uppercase;
+    padding: 4px 5px 0;
+    margin: 7px 5px 10px;
+    background-color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.2mm;
+    font-size: 15px;
+    /* margin-bottom: 15px; */
+}
+
+.noReport {
+    /* background-color: #f0f0f0; */
+    padding: 0;
+    margin: 0;
+}
+
+.noReport:hover{
+    background-color:#fff;
+    padding: 0;
+    margin: 0;
+}
+
+::ng-deep .mat-mdc-tooltip {
+    transform: scale(1.5) !important;
+    position: relative !important;
+}
+
+::ng-deep.example-tooltip-uppercase {
+    text-transform: uppercase;
+    /* font-size: 120%; */
+    max-width: 200px !important;
+    white-space: inherit;
+    font-size: 20px;
+}

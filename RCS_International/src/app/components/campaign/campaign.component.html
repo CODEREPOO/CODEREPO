@@ -1,0 +1,304 @@
+<div class="container-fluid">
+    <!-- <hr> -->
+    <div class="row">
+        <div class=" col-lg-12 col-md-12 col-sm-12 col-12 frm">
+            <div class="toprow mt-4 pt-2">
+                <div class="d-flex justify-content-start align-items-center">
+                    <img class="clogo" src="../../../assets/Images/Campaign.png" alt="">
+                    <div
+                        style="color: black; font-size: 40px; font-family: Lato; font-weight: 700; word-wrap: break-word">
+                        Campaigns</div>
+                </div>
+            </div>
+
+            <div class="">
+                <!-- <div class="btnrow d-flex justify-content-end">
+                    <button class="btn btn-primary1 btn-sm" routerLink="/templateUI">+ Add Template</button>
+                </div> -->
+
+                <div class="mr-4 ml-3 ">
+                    <form class="example-form " [formGroup]="frm" (ngSubmit)="call()">
+
+                        <div class="inp1">
+                            <div>
+                                <span class="d-flex justify-content-end mr-1 mt-1 " style="font-family: Lato;
+                                "><strong>{{CampaignNameCount}} /
+                                        26</strong></span>
+                                <div class="inputbox">
+                                    <!-- <label for=""></label> -->
+                                    <input type="text" class="cname " formControlName="CampaignName" maxlength="26"
+                                        (input)="cmpnae()" required>
+                                    <div class="pl-3"
+                                        *ngIf="frm.controls['CampaignName'].invalid && (frm.controls['CampaignName'].dirty || frm.controls['CampaignName'].touched)">
+                                        <mat-error *ngIf="frm.controls['CampaignName'].hasError('required')">Please
+                                            Provide Campaign Name
+                                        </mat-error>
+                                        <mat-error *ngIf="frm.controls['CampaignName'].hasError('pattern')">Campaign
+                                            Name not contains Special Characters Contains only (a-z,A-Z,0-9)
+                                        </mat-error>
+                                        <!-- </div> -->
+                                    </div>
+                                    <!-- <span class="clabel">Campaign Name</span> -->
+                                    <span>Enter Campaign Name</span>
+                                    <!-- </mat-form-field> -->
+                                </div>
+                            </div>
+                            <div>
+                                <!-- <div class="mt-3"> -->
+
+                                <div class="inputbox mt-3 mb-2">
+                                    <mat-select class="select" formControlName="template_name" matNativeControl
+                                     required>
+                                        <span [formGroup]="searchFrm"
+                                            class="ml-5 mb-2 mr-5 w-50 d-flex justify-content-center align-items-center form-control form-control-md ">
+                                            <span class="material-symbols-outlined">
+                                                search
+                                            </span>
+                                            <input class="ml-3 inputfield w-100" type="text" placeholder="Typing"
+                                                formControlName="inputString">
+                                        </span>
+                                        <mat-option *ngFor="let item of items | filter:searchFrm.value.inputString"
+                                            style="font-size: 20px;"
+                                            [value]="item.template_name">{{item.template_name}}</mat-option>
+
+                                    </mat-select>
+                                    <mat-label>Select Your Template</mat-label>
+                                    <div class="pl-3"
+                                        *ngIf="frm.controls['template_name'].invalid && (frm.controls['template_name'].dirty || frm.controls['template_name'].touched)">
+
+                                        <mat-error *ngIf="frm.controls['template_name'].hasError('required')">Please
+                                            Fill
+                                            this
+                                            Fiels.</mat-error>
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                                <!-- </mat-form-field> -->
+                            </div>
+                        </div>
+                        <!-- </mat-form-field> -->
+                        <div class="ml-1 mt-3 mb-2"
+                            style="color: black; font-size: 20px; font-family: Lato; font-weight: 700; word-wrap: break-word">
+                            Send campaign to</div>
+                        <!-- <mat-radio-group formControlName="number_s" value="ON" checked="true">
+                            <mat-radio-button color="primary" value="ON" checked="true"><span
+                                    style="font-size: larger;">Number(s)</span></mat-radio-button>
+                        </mat-radio-group> -->
+                        <div class="ml-2">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" formControlName="number_s"
+                                        value="Numbers" name="optradio">Numbers
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" 
+                                       disabled value="file_upload" name="optradio">File Upload
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input"  value="G&G"
+                                       disabled name="optradio">Group & Groups
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p1">Type Numbers
+                            (Type just the phone no's in each line)</div>
+                        <!-- <mat-form-field class="example-full-width " appearance="outline" color="primary"> -->
+                        <span class="d-flex justify-content-end mr-2 " style="font-family: Lato;
+                        "><b>Total Mobile Numbers : {{Phone_count}}</b>
+                        </span>
+                        <div class="inputbox">
+                            <textarea required rows="7" (input)="mobileNumbers()" class="w-100"
+                                formControlName="PhoneNumber"></textarea>
+                            <span class="spn">Mobile Number</span>
+                            <div class="pl-3"
+                                *ngIf="frm.controls['PhoneNumber'].invalid && (frm.controls['PhoneNumber'].dirty || frm.controls['PhoneNumber'].touched)">
+                                <div style="color: red " *ngIf="frm.controls['PhoneNumber'].hasError('required')">This
+                                    field is required.</div>
+                                <div style="color: red;" *ngIf="frm.controls['PhoneNumber'].hasError('pattern')">Please
+                                    Enter Mobile Numbers(0-9 & Press Enter).</div>
+                            </div>
+
+                        </div>
+                        <!-- </mat-form-field> -->
+                        <div class="d-flex justify-content-start actions ">
+                            <div class="box1">
+                                <button class="m-2 abtn d-flex align-items-center " type="button"
+                                    (click)="clear()">Clear List
+                                </button>
+                                <button class="m-2 abtn" type="button" (click)="uniqNumber()">Unique Numbers
+                                </button>
+                                <!-- <button mat-stroked-button class="m-2" type="button"
+                                    style="font-weight: 600; border-radius: 10px; color: rgb(54, 38, 160);"><span><lucide-icon
+                                            name="inspect" class="mr-1" [size]="19" [strokeWidth]="1.75"
+                                            [absoluteStrokeWidth]="true"></lucide-icon>
+                                    </span> Count Nos</button> -->
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-start example-button-row">
+                            <!-- <button class="btn btn-sm btn-outline-success pl-5 pr-5 mt-1">Send</button> -->
+                            <button mat-raised-button *ngIf="btnShow" type="submit" class="btnn mt-3 ">Send
+                                Campaign</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-lg-1"></div> -->
+        <!-- <div class="col-lg-4 col-md-12 shadow col-sm-12 col-12 preview">
+            <div class="Cpreview">
+                <span>Campaign Preview</span>
+            </div>
+            <br>
+            <div class="mobileBox">
+                <div class="mobile shadow">
+                    <div class="innerbar">
+                        <div class="notch"></div>
+                        <div class="content" *ngIf="template1">
+                            <div class="mob-top-row">
+                                <span class="left">
+                                    <span class="material-symbols-outlined">
+                                        arrow_back
+                                    </span>
+                                    <span class="ml-1" style="font-weight: bold;">
+                                        {{cn}}
+                                    </span>
+                                </span>
+                                <span class="right">
+                                    <span class="material-symbols-outlined"> beenhere
+                                    </span>
+                                    <span><i class='bx bx-search bx-tada' style="font-size: larger;"
+                                            undefined></i></span>
+                                    <span class="material-symbols-outlined">
+                                        more_vert
+                                    </span>
+                                </span>
+                            </div>
+                            <div *ngIf="template1.templateModel.type == 'rich_card'||template1.templateModel.type == 'text_message'" style="border-bottom: 3px solid lightgray;width: 100%;padding: 0 0 10px;">
+                                <div class="d-flex justify-content-center">
+                                    <img src="../../../assets/Images/{{pagelogo}}"
+                                        style="height: 70px;width: 70px;position: relative; border: 1px solid lightgray; border-radius: 50%;"
+                                        alt="">
+                                </div>
+                            </div>
+                            <div class="mob-bottom" *ngIf="template1.templateModel.type == 'rich_card'">
+                                <div class="messageContent">
+                                    <div class="image">
+                                        <img *ngIf="template1.templateModel.height == 'SHORT_HEIGHT'"
+                                            src="{{template1.templateModel.standAlone.mediaUrl}}"
+                                            style="height: 100px;width: 100%;" alt="Template Image">
+                                        <img *ngIf="template1.templateModel.height == 'MEDIUM_HEIGHT'"
+                                            src="{{template1.templateModel.standAlone.mediaUrl}}"
+                                            style="height: 130px;width: 100%;" alt="Template Image">
+                                    </div>
+                                    <div class="msgContent">
+                                        <h6>{{template1.templateModel.standAlone.cardTitle}}</h6>
+                                        <p style="text-align: justify;font-size: small;">
+                                            {{template1.templateModel.standAlone.cardDescription
+                                            }}</p>
+                                    </div>
+                                    <div class="msglinks"
+                                        *ngFor="let i of template1.templateModel.standAlone.suggestions">
+                                        <a *ngIf="i.reply">{{i.reply
+                                            }}</a>
+                                        <hr *ngIf="i.url">
+                                        <a *ngIf="i.url" href="{{i.url}}" title="{{i.url}}" target="_blank"><span
+                                                class="material-symbols-outlined linkicn">
+                                                language
+                                            </span> Link </a>
+                                        <hr *ngIf="i.phoneNumber">
+                                        <a *ngIf="i.phoneNumber"><span class="material-symbols-outlined linkicn">
+                                                call
+                                            </span> Call us now</a>
+                                    </div>
+                                </div>
+                                <div class="inputbar">
+                                    <span class="material-symbols-outlined">
+                                        add_circle
+                                    </span>
+                                    <span class="material-symbols-outlined">
+                                        photo_camera
+                                    </span>
+                                    <div class="inpfield">
+                                        <div class="d-flex">
+                                            <input
+                                                style="border: none;background-color: transparent;outline: none;padding: 0 10px; width: 60%;"
+                                                type="text" placeholder="Chat (Jio4G)">
+                                            <span class="material-symbols-outlined text-primary">
+                                                sim_card
+                                            </span>
+                                            <span class="material-symbols-outlined">
+                                                sentiment_satisfied
+                                            </span>
+                                            <span class="material-symbols-outlined">
+                                                mic
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btmbar">
+                                    <span> </span>
+                                </div>
+                            </div>
+                            <div class="mob-bottom" *ngIf="template1.templateModel.type == 'text_message'">
+                                <div class="messageContent">
+                                    <div class="msgContent">
+                                        <p style="text-align: justify;font-size: small;">
+                                            {{template1.templateModel.textMessageContent
+                                            }}</p>
+                                    </div>
+                                    <div *ngIf="template1.templateModel.suggestions">
+                                        <div class="msglinks"
+                                            *ngFor="let i of template1.templateModel.standAlone.suggestions">
+                                            <a *ngIf="i.reply">{{i.reply
+                                                }}</a>
+                                            <hr *ngIf="i.url">
+                                            <a *ngIf="i.url" href="{{i.url}}" title="{{i.url}}" target="_blank"><span
+                                                    class="material-symbols-outlined linkicn">
+                                                    language
+                                                </span>{{i.url}}</a>
+                                            <hr *ngIf="i.phoneNumber">
+                                            <a *ngIf="i.phoneNumber"><span class="material-symbols-outlined linkicn">
+                                                    call
+                                                </span>{{i.phoneNumber}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inputbar">
+                                    <span class="material-symbols-outlined">
+                                        add_circle
+                                    </span>
+                                    <span class="material-symbols-outlined">
+                                        photo_camera
+                                    </span>
+                                    <div class="inpfield">
+                                        <div class="d-flex">
+                                            <input
+                                                style="border: none;background-color: transparent;outline: none;padding: 0 10px; width: 60%;"
+                                                type="text" placeholder="Chat (Jio4G)">
+                                            <span class="material-symbols-outlined text-primary">
+                                                sim_card
+                                            </span>
+                                            <span class="material-symbols-outlined">
+                                                sentiment_satisfied
+                                            </span>
+                                            <span class="material-symbols-outlined">
+                                                mic
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btmbar">
+                                    <span> </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>

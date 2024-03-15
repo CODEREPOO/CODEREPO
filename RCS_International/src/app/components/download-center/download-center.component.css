@@ -1,0 +1,35 @@
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .headbox {
+        -webkit-backdrop-filter: blur(100px);
+        backdrop-filter: blur(100px);
+        /* height: 100px; */
+        /* background-color: rgba(255, 255, 255, 0.5);   */
+        /* background: linear-gradient(to right bottom, rgba(161, 33, 151, 0.986),#4434aa); */
+    }
+
+    .warning {
+        display: none;
+    }
+}
+
+
+.icn{
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.title{
+    font-size: 1.2rem;
+}
+
+.noReport {
+    /* background-color: #f0f0f0; */
+    padding: 0;
+    margin: 0;
+}
+
+.noReport:hover{
+    background-color:#fff;
+    padding: 0;
+    margin: 0;
+}

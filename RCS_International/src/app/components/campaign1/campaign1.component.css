@@ -1,0 +1,269 @@
+.main{
+    height: 100vh;
+    width: 100%;
+}
+.display-3{
+    background: linear-gradient(to right top, rgb(255, 0, 255),rgba(40, 155, 201, 0.586),rgb(236, 5, 225));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color:transparent;
+    padding: 5px 0;
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+.rightside {
+    border-left: 3px solid lightgrey;
+    height: 100vh;
+}
+
+.leftmain {
+    margin-top: 30px;
+}
+
+.table {
+    font-family: Lato;
+    width: 100%;
+}
+
+.table thead tr th {
+    font-size: large;
+}
+
+.searchInp {
+    border-radius: 30px;
+    padding: 15px;
+    color: rgb(54, 38, 160);
+}
+
+.btn-h:hover {
+    background-color: rgb(54, 38, 160);
+    color: white;
+    font-weight: normal;
+    transition: .3s ease-in-out;
+}
+
+.form-control1 {
+    border-radius: 7px;
+    padding-left: 40px;
+}
+
+.btnn {
+    /* background-color: #3626A0; */
+    padding: 0 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.5mm;
+    border-radius: 10px;
+    background-color: #000;
+}
+
+
+.btn {
+    border-radius: 8px;
+}
+
+.scrll::-webkit-scrollbar {
+    display: none;
+}
+
+.inp {
+    display: flex;
+    justify-content: center;
+    /* width: 100%; */
+}
+
+.rcdSpan {
+    /* width: auto; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inp:focus {
+    outline: none;
+}
+
+.Cstatus {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+
+.CNR {
+    border: 3px solid #dc3545;
+    color: #ff0000;
+}
+
+.CR {
+    border: 3px solid #14A44D;
+    color: #14A44D;
+}
+
+.td1Status {
+    width: 25%;
+}
+
+.inpBox {
+    /* display: flex; */
+    /* justify-content: center;
+    position: relative; */
+    /* width: 30%; */
+}
+
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.recordDetails {
+    display: flex;
+    align-items: center;
+}
+
+
+.serchicn {
+    position: absolute;
+    top: 13px;
+    font-size: x-large;
+    font-weight: bold;
+    left: 25px;
+}
+
+.expansion1 {
+    margin: 10px 0;
+}
+
+.expansion1 .body1 {
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    font-size: x-large;
+}
+
+.expansion1.mat-expansion-panel .mat-expansion-panel-header {
+    backdrop-filter: blur(50px);
+    padding: 15px;
+    color: white;
+    height: auto;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: Lato;
+}
+
+.expansion1.mat-expansion-panel .mat-expansion-panel-header-description {
+    justify-content: flex-end;
+    /* color: white; */
+    color: #4C4E50;
+}
+
+.expansion1 .mat-expansion-panel-header-title {
+    color: #4C4E50;
+    /* color: white; */
+}
+
+@media (max-width:1024px) and(min-width:768px) {
+
+    .table-responsive {
+        font-family: Lato;
+        overflow: scroll;
+        /* width: 100%; */
+    }
+
+    .table tbody tr td {
+        width: 100%;
+    }
+
+    .table tbody tr td:first-child {
+        width: 350px;
+    }
+
+    .table tbody tr td span small {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* .inp {
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+    } */
+
+    .inpBox {
+        width: auto;
+    }
+}
+
+@media(max-width: 767px) {
+    .table {
+        font-family: Lato;
+        /* width: 100%; */
+    }
+
+    .table tbody tr td {
+        width: 100%;
+    }
+
+    .table tbody tr td:first-child {
+        width: 350px;
+    }
+
+    .table tbody tr td span small {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* .inp {
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+    } */
+
+    .inpBox {
+        width: auto;
+    }
+
+    .Cstatus {
+        width: 100%;
+        overflow: hidden;
+        /* padding: 15px; */
+        font-size: medium;
+        border-radius: 15px;
+    }
+
+    .recordDetails {
+        display: block;
+    }
+
+    .CR {
+        border: 3px solid #14A44D;
+        color: #14A44D;
+    }
+
+    .td1Status {
+        width: 100%;
+    }
+
+    h3 {
+        font-size: larger;
+    }
+}

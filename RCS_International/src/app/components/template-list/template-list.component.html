@@ -1,0 +1,326 @@
+<div class="main">
+    <div class="head">
+        <h1 class="display-4">Template List</h1>
+        <span> <button class="btn btn-sm shadow" routerLink="/templateUI"><strong>+ Add Template</strong></button>
+        </span>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-center">
+
+        <mat-drawer-container class="bg-white report shadow pb-3 pt-3 w-75 ">
+            <div>
+                <div class="d-flex justify-content-around p-2 pb-3 align-items-center pl-auto pr-auto">
+                    <span class="inpBox w-75">
+                        <i class='bx bx-search bx-tada serchicn' style='color:#9fa6b2'></i>
+                        <input type="text" class="searchInp form-control form-control1 form-control-lg"
+                            [(ngModel)]="inputString" placeholder="Search for Templates..">
+                    </span>
+                    <!-- <span>
+                        <select name="statuss" class="form-control form-control-lg" id="statuss">
+                            <option *ngFor="let ls of ListStatus" [value]="ls.key">{{ls.key}}</option>
+                        </select>
+                    </span> -->
+                </div>
+                <table class="table ">
+                    <thead>
+                        <tr class="text-center">
+                            <th>NAMES</th>
+                            <!-- <th>STATUS</th> -->
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of pageslice | tempListFileter:inputString;let i as index">
+                            <td>{{item.template_name}}</td>
+                            <!-- <td>{{item.status}}</td> -->
+                            <td><a title="Preview" href="#{{item.template_name}}" (click)="preview(item.template_name)"
+                                    data-toggle="modal" data-target="#{{item.template_name}}">
+                                    <span class="material-symbols-outlined">
+                                        arrow_forward
+                                    </span>
+                                </a>
+                                <a class="ml-3" title="Send" style="color: 	rgb(0, 153, 255);"
+                                    (click)="SendTemplateName(i)">
+                                    <span class="material-symbols-outlined">
+                                        open_in_new
+                                    </span>
+                                </a>
+                            </td>
+                            <div class="modal fade" id="{{item.template_name}}" data-backdrop="false">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content bg-white">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title d-flex justify-content-center align-items-center ">
+                                                Template
+                                                Preview <span class="material-symbols-outlined ml-2 mt-2 text-success">
+                                                    visibility
+                                                </span>
+                                                <!-- <a *ngIf="item.status === 'approved'" (click)="PreviewStatus()">
+                                                    <span class="material-symbols-outlined ml-2 text-success"
+                                                        *ngIf="mobilePreview">
+                                                        visibility
+                                                    </span>
+                                                    <span class="material-symbols-outlined  ml-2 text-success"
+                                                        *ngIf="!mobilePreview">
+                                                        visibility_off
+                                                    </span>
+                                                </a>
+                                                <a *ngIf="item.status === 'rejected'" (click)="PreviewStatus()">
+                                                    <span class="material-symbols-outlined ml-2 text-danger"
+                                                        *ngIf="mobilePreview">
+                                                        visibility
+                                                    </span>
+                                                    <span class="material-symbols-outlined  ml-2 text-danger"
+                                                        *ngIf="!mobilePreview">
+                                                        visibility_off
+                                                    </span>
+                                                </a> -->
+                                            </h4>
+                                            <button type="button" class="close" data-dismiss="modal"><span
+                                                    class="material-symbols-outlined" style="font-weight: bolder;">
+                                                    close
+                                                </span></button>
+                                        </div>
+                                        <div class="modal-body" style="height: 700px; overflow-y: scroll;">
+                                            <h4 class="text-primary">Template Name :
+                                                <strong>{{item.template_name}}</strong>
+                                            </h4>
+                                            <h5 class="text-info">Template Type : <strong>{{TemplateType}}</strong></h5>
+                                            <!-- <h6>Status : {{item.status}}</h6> -->
+                                            <!-- <div class="d-flex justify-content-end">
+                                                <button (click)="deleteTemplate(item.name)"
+                                                    class="btn btn-sm btn-outline-danger d-flex justify-content-center align-items-center">Delete
+                                                    Template <span class="material-symbols-outlined ml-2"
+                                                        style="font-size: x-large;">
+                                                        delete_forever
+                                                    </span></button>
+                                            </div> -->
+                                            <hr>
+                                            <!-- <div class="d-flex justify-content-center flex-column">
+                                                <h5>Template Image : </h5>
+                                                <img class="rounded "
+                                                    src="{{templateJsonData.contentMessage.richCard.standaloneCard.cardContent.media.contentInfo.fileUrl}}"
+                                                    alt="" height="250px">
+                                            </div> -->
+                                            <!-- <p>{{templateJsonData.contentMessage.richCard.standaloneCard.cardContent.media.contentInfo.fileUrl}}</p> -->
+                                            <!-- <pre style="color: blueviolet;">{{templateJsonData | json}}</pre> -->
+                                            <div class="mobileBox">
+                                                <div class="mobile">
+                                                    <div class="innerbar">
+                                                        <div class="notch"></div>
+                                                        <div class="content">
+                                                            <div class="mob-top-row">
+                                                                <span class="left">
+                                                                    <span class="material-symbols-outlined">
+                                                                        arrow_back
+                                                                    </span>
+                                                                    <span style="font-weight: bold;">
+                                                                        Telinfy
+                                                                    </span>
+                                                                </span>
+                                                                <span class="right">
+                                                                    <span class="material-symbols-outlined"> beenhere
+                                                                    </span>
+                                                                    <span><i class='bx bx-search bx-tada'
+                                                                            style="font-size: larger;"
+                                                                            undefined></i></span>
+                                                                    <span class="material-symbols-outlined">
+                                                                        more_vert
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div *ngIf="TemplateType == 'richCard'||TemplateType == 'text'"
+                                                                style="border-bottom: 3px solid lightgray;width: 100%;padding: 0 0 10px;">
+                                                                <div class="d-flex justify-content-center">
+                                                                    <img src="../../../assets/Images/pp.jpg"
+                                                                        style="height: 70px;width: 70px;position: relative; border: 1px solid lightgray; border-radius: 50%;"
+                                                                        alt="">
+                                                                </div>
+                                                            </div>
+                                                            <!-- <p>{{templateJsonData | json}}</p> -->
+                                                            <div class="mob-bottom" *ngIf="TemplateType == 'richCard'">
+                                                                <div class="messageContent">
+                                                                    <div class="image">
+                                                                        <img *ngIf="templateJsonData.contentMessage.richCard.standaloneCard.cardContent.media.height == 'SMALL'"
+                                                                            src="{{templateJsonData.contentMessage.richCard.standaloneCard.cardContent.media.contentInfo.fileUrl}}"
+                                                                            style="height: 100px;width: 100%;"
+                                                                            alt="Template Image">
+                                                                        <img *ngIf="templateJsonData.contentMessage.richCard.standaloneCard.cardContent.media.height == 'MEDIUM'"
+                                                                            src="{{templateJsonData.contentMessage.richCard.standaloneCard.cardContent.media.contentInfo.fileUrl}}"
+                                                                            style="height: 130px;width: 100%;"
+                                                                            alt="Template Image">
+                                                                        <img *ngIf="templateJsonData.contentMessage.richCard.standaloneCard.cardContent.media.height == 'TALL'"
+                                                                            src="{{templateJsonData.contentMessage.richCard.standaloneCard.cardContent.media.contentInfo.fileUrl}}"
+                                                                            style="height: 160px;width: 100%;"
+                                                                            alt="Template Image">
+                                                                    </div>
+                                                                    <div class="msgContent">
+                                                                        <h6>{{templateJsonData.contentMessage.richCard.standaloneCard.cardContent.title}}
+                                                                        </h6>
+                                                                        <p
+                                                                            style="text-align: justify;font-size: small;">
+                                                                            {{templateJsonData.contentMessage.richCard.standaloneCard.cardContent.description
+                                                                            }}</p>
+                                                                    </div>
+                                                                    <div class="msglinks"
+                                                                        *ngFor="let i of templateJsonData.contentMessage.richCard.standaloneCard.cardContent.suggestions;let idx as index">
+                                                                        <!-- <p>{{i | json}}{{idx}}</p> -->
+                                                                        <div *ngFor="let innd of i | keyvalue">
+
+                                                                            <div *ngIf="innd.key === 'reply'">
+                                                                                <a>{{i.reply.text}}</a>
+                                                                            </div>
+                                                                            <div *ngIf="innd.key === 'action'">
+                                                                                <a
+                                                                                    href="{{i.action.openUrlAction.url}}">{{i.action.text}}</a>
+                                                                            </div>
+                                                                            <div *ngIf="innd.key === 'action'">
+                                                                                <span *ngIf="i.action.dialAction">
+
+                                                                                    <a
+                                                                                        href="{{i.action.dialAction.phoneNumber}}">{{i.action.text}}</a>
+                                                                                </span>
+                                                                            </div>
+
+                                                                            <!-- <a *ngIf="i.suggestionType === 'reply'">{{i.displayText
+                                                                        }}</a>
+                                                                        <hr *ngIf="i.suggestionType === 'url_action'">
+                                                                        <a *ngIf="i.suggestionType === 'url_action'"
+                                                                        href="{{i.url}}" title="{{i.url}}"
+                                                                        target="_blank"><span
+                                                                        class="material-symbols-outlined linkicn">
+                                                                        language
+                                                                    </span>{{i.url}}</a>
+                                                                    <hr
+                                                                    *ngIf="i.suggestionType === 'dialer_action'">
+                                                                    <a *ngIf="i.suggestionType === 'dialer_action'"><span
+                                                                        class="material-symbols-outlined linkicn">
+                                                                        call
+                                                                    </span>{{i.phoneNumber}}</a> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="inputbar">
+                                                                    <span class="material-symbols-outlined">
+                                                                        add_circle
+                                                                    </span>
+                                                                    <span class="material-symbols-outlined">
+                                                                        photo_camera
+                                                                    </span>
+                                                                    <div class="inpfield">
+                                                                        <div class="d-flex">
+                                                                            <input
+                                                                                style="border: none;background-color: transparent;outline: none;padding: 0 10px; width: 60%;"
+                                                                                type="text" placeholder="Chat (Jio4G)">
+                                                                            <span
+                                                                                class="material-symbols-outlined text-primary">
+                                                                                sim_card
+                                                                            </span>
+                                                                            <span class="material-symbols-outlined">
+                                                                                sentiment_satisfied
+                                                                            </span>
+                                                                            <span class="material-symbols-outlined">
+                                                                                mic
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="btmbar">
+                                                                    <span> </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mob-bottom"
+                                                                *ngIf="TemplateType == 'text'">
+                                                                <div class="messageContent">
+                                                                    <div class="msgContent">
+                                                                        <p
+                                                                            style="text-align: justify;font-size: small;">
+                                                                            {{templateJsonData.contentMessage.text
+                                                                            }}</p>
+                                                                    </div>
+                                                                    <div class="msglinks"
+                                                                        *ngFor="let i of templateJsonData.contentMessage.text.standaloneCard.cardContent.suggestions;let idx as index">
+                                                                        <!-- <p>{{i | json}}{{idx}}</p> -->
+                                                                        <div *ngFor="let innd of i | keyvalue">
+
+                                                                            <div *ngIf="innd.key === 'reply'">
+                                                                                <a>{{i.reply.text}}</a>
+                                                                            </div>
+                                                                            <div *ngIf="innd.key === 'action'">
+                                                                                <a
+                                                                                    href="{{i.action.openUrlAction.url}}">{{i.action.text}}</a>
+                                                                            </div>
+                                                                            <div *ngIf="innd.key === 'action'">
+                                                                                <span *ngIf="i.action.dialAction">
+
+                                                                                    <a
+                                                                                        href="{{i.action.dialAction.phoneNumber}}">{{i.action.text}}</a>
+                                                                                </span>
+                                                                            </div>
+
+                                                                            <!-- <a *ngIf="i.suggestionType === 'reply'">{{i.displayText
+                                                                        }}</a>
+                                                                        <hr *ngIf="i.suggestionType === 'url_action'">
+                                                                        <a *ngIf="i.suggestionType === 'url_action'"
+                                                                        href="{{i.url}}" title="{{i.url}}"
+                                                                        target="_blank"><span
+                                                                        class="material-symbols-outlined linkicn">
+                                                                        language
+                                                                    </span>{{i.url}}</a>
+                                                                    <hr
+                                                                    *ngIf="i.suggestionType === 'dialer_action'">
+                                                                    <a *ngIf="i.suggestionType === 'dialer_action'"><span
+                                                                        class="material-symbols-outlined linkicn">
+                                                                        call
+                                                                    </span>{{i.phoneNumber}}</a> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="inputbar">
+                                                                    <span class="material-symbols-outlined">
+                                                                        add_circle
+                                                                    </span>
+                                                                    <span class="material-symbols-outlined">
+                                                                        photo_camera
+                                                                    </span>
+                                                                    <div class="inpfield">
+                                                                        <div class="d-flex">
+                                                                            <input
+                                                                                style="border: none;background-color: transparent;outline: none;padding: 0 10px; width: 60%;"
+                                                                                type="text" placeholder="Chat (Jio4G)">
+                                                                            <span
+                                                                                class="material-symbols-outlined text-primary">
+                                                                                sim_card
+                                                                            </span>
+                                                                            <span class="material-symbols-outlined">
+                                                                                sentiment_satisfied
+                                                                            </span>
+                                                                            <span class="material-symbols-outlined">
+                                                                                mic
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="btmbar">
+                                                                    <span> </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+                <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)"
+                    [length]="items.length" [pageSize]="5" [showFirstLastButtons]="true" [pageSizeOptions]="[10,25,50]"
+                    aria-label="Select page">
+                </mat-paginator>
+            </div>
+        </mat-drawer-container>
+    </div>
+</div>

@@ -1,0 +1,249 @@
+<div class="">
+    <div class="pt-3 pl-3 pr-3 pb-5">
+        <div class="toprow mt-2 pl-2 ">
+            <div class="d-flex justify-content-between">
+                <span class="mt-2 pl-1" style="font-size: 2rem; font-weight: bold;    font-family: Lato;">
+                    Manage Reports </span><br>
+                <!-- <small class="text-secondary" style="font-size: x-small;">View and manage all your campaign</small> -->
+                <div class="mr-3 mt-2">
+                    <!-- <button class="btn btn-h rounded" style="font-weight: 500;">Outbound<span
+                        class="badge btn p-1 ml-2 text-center text-white"
+                        style="width: 50px;letter-spacing: 2px;font-weight: bold; background-color: rgb(54, 38, 160) ;">4526</span></button>
+                        <button class="btn btn-h rounded ml-3 " style="font-weight: 500;">Inbound<span
+                            class="badge btn p-1 ml-2 text-center text-white"
+                            style="width: 50px;letter-spacing: 2px;font-weight: bold;background-color: rgb(54, 38, 160);">256</span></button> -->
+
+
+                </div>
+            </div>
+            <hr>
+            <div class="mt-2">
+                <p class="bg-secondary report"><lucide-icon name="pencil" [size]="20" class="mr-1" [strokeWidth]="1.25"
+                        [absoluteStrokeWidth]="true"></lucide-icon>
+                    Report</p>
+                <p class="ml-5" style="font-size: small;">Download the delivery reports every 7 Days to
+                    avoid
+                    unnecessary loss of Data. Since we can't guarantee its availability beyond this period.</p>
+            </div>
+            <div>
+                <div class="page-content page-container" id="page-content" data-aos="fade-right"
+                    data-aos-duration="5000" data-aos-delay="1000">
+                    <!--  <div class="padding">
+                        <div class="row">
+                            <div class="container-fluid d-flex justify-content-center">
+                                <div class="col-sm-12 col-md-7 col-lg-5">
+                                    <div class="card-body" style="height: auto">
+                                        <div class="chartjs-size-monitor"
+                                            style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                            <div class="chartjs-size-monitor-expand"
+                                                style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div
+                                                    style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                                                </div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink"
+                                                style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+                                                </div>
+                                            </div>
+                                        </div> <canvas id="chart-line" width="299" height="200"
+                                            class="chartjs-render-monitor"
+                                            style="display: block; width: 299px; height: 200px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="d-flex justify-content-center mt-2 mb-3 ">
+                        <div style="width: 300px; height: 300px; " *ngIf="chart">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- <p class="d-flex justify-content-center" style="word-wrap: normal; font-weight: 600;">
+                    Click&nbsp;<span><a href=""
+                            style="color: #000; text-decoration: underline;">here</a></span>&nbsp;download count</p> -->
+                <div class="w-100 ">
+                    <div class="row d-flex align-items-center">
+                        <div class="form-group col-lg-3 col-md-5  col-sm-12">
+                            <div class="inputbox">
+
+                                <!-- <mat-form-field class="example-full-width" appearance="outline" color="primary"> -->
+                                <mat-select matNativeControl required [(value)]="selected" class=" select">
+                                    <mat-option value="HTTP API">HTTP API</mat-option>
+                                    <mat-option value="COMPOSE">COMPOSE</mat-option>
+                                    <!-- <mat-option value="EXCEL">EXCEL</mat-option> -->
+                                    <!-- <mat-option value="FILE UPLOAD">FILE UPLOAD</mat-option> -->
+                                </mat-select>
+                                <mat-label><strong>Report Type</strong></mat-label>
+                                <!-- </mat-form-field> -->
+                            </div>
+                        </div><br>
+                        <div class="form-group col-lg-3 col-md-5 col-sm-12  ">
+                            <!-- <mat-form-field class="example-full-width" > -->
+                            <div class="inputbox datepick">
+                                <input [matDatepicker]="piccker" [(ngModel)]="frmDate" (click)="piccker.open()">
+                                <span><strong>From</strong></span>
+                                <mat-datepicker #piccker></mat-datepicker>
+                            </div>
+                            <!-- </mat-form-field> -->
+                        </div><br>
+                        <div class="form-group col-lg-3 col-md-5 col-sm-12  ">
+                            <!-- <mat-form-field class="example-full-width" > -->
+                            <div class="inputbox datepick">
+                                <input [matDatepicker]="picker" [(ngModel)]="lstmDate" (click)="picker.open()">
+                                <span><strong>To</strong></span>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </div>
+                            <!-- </mat-form-field> -->
+                        </div><br><br><br><br>
+                        <div class="form-group col-lg-3 col-md-5 col-sm-12 ">
+                            <button mat-stroked-button class="w-75 pt-4 shadow-sm pb-4 bg-white" color="primary"
+                                style="font-weight: bold;letter-spacing: 0.5mm; border-radius: 10px; font-size: 20px;"
+                                (click)="printDate()">Get
+                                Report</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <br><br> -->
+                <div class="w-100">
+                    <div class="row d-flex align-items-center ">
+                        <div class="form-group col-lg-4 col-md-5 col-sm-12">
+                            <!-- <mat-form-field class="example-full-width" appearance="outline"> -->
+                            <div class="inputbox" [formGroup]="searchInpField">
+                                <input matInput formControlName="search">
+                                <span>Enter Mobile Number</span>
+                            </div>
+                            <!-- </mat-form-field> -->
+                        </div>
+                        <div class="d-flex justify-content-between col-lg-7 col-md-7 col-sm-6">
+                            <div class="form-group"><button mat-stroked-button class="w-100 pt-4 pb-4 bg-white shadow-sm " color="primary"
+                                    style="font-weight: bold;font-size: x-large; letter-spacing: 0.5mm; border-radius: 10px;"
+                                    (click)="srch()"><lucide-icon name="search" [size]="23" class="mr-1"
+                                        [strokeWidth]="2" [absoluteStrokeWidth]="true"></lucide-icon>Search</button>
+                            </div>
+                            <div class=" d-flex align-items-center ">
+                                <a style="font-size: larger;cursor: pointer;text-decoration: underline;"
+                                    (click)="downloadBtn()">Download XI <span class="pl-2"
+                                        style="top: 20px; position: absolute;"><i class='bx bx-download bx-tada'
+                                            style="font-size: larger;"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" table-responsive border mt-3 p-0"
+                        style="border-radius: 20px;box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;">
+                        <table class="table table-sm table-hover w-100 pb-0 mb-0 ">
+                            <thead class="bg-secondary text-white" style="border-bottom: 3px solid rgb(139, 139, 139)">
+                                <tr>
+                                    <th class="th display-1">
+                                        Mobile
+                                    </th>
+                                    <th class="th display-1">
+                                        Message
+                                    </th>
+                                    <th class="th display-1">
+                                        No. of
+                                        Credits</th>
+                                    <th class="th display-1">
+                                        Status
+                                        <!-- 0 - sent, 1 - deliverd, 2 - read, 3 - undelivers -->
+                                    </th>
+                                    <th class="th display-1">
+                                        Error Code
+                                    </th>
+                                    <th class="th display-1">
+                                        URL / Called
+                                    </th>
+                                    <th class="th display-1">
+                                        Sending
+                                        Time</th>
+                                    <th class="th display-1">
+                                        Delivery
+                                        Time</th>
+                                    <th class="th display-1">
+                                        Read Time</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="datarow">
+                                <tr *ngFor="let item of pageslice">
+                                    <td class="td">{{item.phone_number}}</td>
+                                    <td class="td">
+                                        <span *ngIf="item.rcs_data1 == null">N/A</span>
+                                        <span *ngIf="item.rcs_data1 !== null">{{item.rcs_data1}}</span>
+                                    </td>
+                                    <td class="td">{{item.no_of_rcs_wallet}}</td>
+                                    <td class="td">{{item.rcs_status1}}</td>
+                                    <td class="td">
+                                        <span *ngIf="item.error_code == 400" matTooltip="maap specific error (or) Invalid_template_data (or) google_rate_limit"
+                                            [matTooltipPosition]="'right'" matTooltipHideDelay="1000"
+                                            matTooltipClass="example-tooltip-uppercase ">{{item.error_code}}</span>
+                                        <span *ngIf="item.error_code == 402" matTooltip="Insufficient balance"
+                                            [matTooltipPosition]="'right'" matTooltipHideDelay="1000"
+                                            matTooltipClass="example-tooltip-uppercase ">{{item.error_code}}</span>
+                                        <span *ngIf="item.error_code == 403" matTooltip="curfew_hrs"
+                                            [matTooltipPosition]="'right'" matTooltipHideDelay="1000"
+                                            matTooltipClass="example-tooltip-uppercase">{{item.error_code}}</span>
+                                        <span *ngIf="item.error_code == 404" matTooltip="Number is RCS Disabled"
+                                            [matTooltipPosition]="'right'" matTooltipHideDelay="1000"
+                                            matTooltipClass="example-tooltip-uppercase ">{{item.error_code}}</span>
+                                        <span *ngIf="item.error_code == 409" matTooltip="Invalid_template"
+                                            [matTooltipPosition]="'right'" matTooltipHideDelay="1000"
+                                            matTooltipClass="example-tooltip-uppercase">{{item.error_code}}</span>
+                                        <span *ngIf="item.error_code == 410" matTooltip="opted_out"
+                                            [matTooltipPosition]="'right'" matTooltipHideDelay="1000"
+                                            matTooltipClass="example-tooltip-uppercase">{{item.error_code}}</span>
+                                        <span *ngIf="item.error_code == 423" matTooltip="dnd_enabled"
+                                            [matTooltipPosition]="'right'" matTooltipHideDelay="1000"
+                                            matTooltipClass="example-tooltip-uppercase">{{item.error_code}}</span>
+                                        <span *ngIf="item.error_code == 429" matTooltip="Monthly message limit exceeded"
+                                            [matTooltipPosition]="'right'" matTooltipHideDelay="1000"
+                                            matTooltipClass="example-tooltip-uppercase">{{item.error_code}}</span>
+                                        <span
+                                            *ngIf="item.error_code !== 400 && item.error_code !== 410 && item.error_code !== 404 && item.error_code !== 403 && item.error_code !== 423 && item.error_code !== 429 && item.error_code !== 409">{{item.error_code}}</span>
+                                    </td>
+                                    <td class="td">
+                                        <span *ngIf="item.reply_data !== null">{{item.reply_data}}</span>
+                                        <span *ngIf="item.reply_data == null">No</span>
+                                    </td>
+                                    <td class="td">{{item.insert_timestamp | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+                                    <td class="td">
+                                        <span *ngIf="item.delivered_timestamp == null">Null</span>
+                                        <span *ngIf="item.delivered_timestamp !== null">{{item.delivered_timestamp |
+                                            date : 'yyyy-MM-dd HH:mm:ss'}}</span>
+                                    </td>
+                                    <td class="td">
+                                        <span *ngIf="item.read_timestamp !== null">{{item.read_timestamp | date :
+                                            'yyyy-MM-dd HH:mm:ss'}}</span>
+                                        <span *ngIf="item.read_timestamp == null">Null</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                            <tbody *ngIf="!datarow">
+                                <!-- <tr class="text-secondary">
+                                    <!-- <td colspan="9"> Please Select From date and To date!</td>
+                                </tr> -->
+                                <tr>
+                                    <td class="p-0 m-0" colspan="9">
+                                        <div class="d-flex justify-content-center noReport">
+                                            <img src="../../../assets/bgImgs/reports.jpg"
+                                                alt="Please Select From date and To date!" width="500" height="470">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div>
+                            <mat-paginator *ngIf="datarow" [length]="data.length" [pageSize]="50"
+                                (page)="onPageChange($event)" style="font-size: 18px;" [pageSizeOptions]="[50,100,150]"
+                                class="w-100 pr-3 pb-2" aria-label="Select page">
+                            </mat-paginator>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

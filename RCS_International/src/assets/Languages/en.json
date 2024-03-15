@@ -1,0 +1,30 @@
+{
+    "LoginScreen": {
+        "Introducing": "Introducing Google RBM Business Messaging",
+        "SignUpText": "Sign Up now and engage your customers with rich media messages through Google RCS Business Messaging.Telinfy platform provides a varity of tools to communicate with your customer and manage you campaign effectively.",
+        "SignUp": "Sign Up Now",
+        "Language": "Language",
+        "LoginHead": "Login to your Telinfy Account",
+        "UserName": "User Name",
+        "Password": "Password",
+        "Rememberme": "Remember me",
+        "Forgotpassword?": "Forgot password?",
+        "Login": "Login"
+    },
+    "campaign_section": {
+        "logout": "Logout",
+        "campaign_header": "Campaigns",
+        "enter_campaign_name": "Enter Campaign Name",
+        "select_your_template": "SELECT YOUR TEMPLATE",
+        "send_campaign_to": "Send campaign to",
+        "numbers_input": "Numbers",
+        "file_upload": "File upload",
+        "group_and_groups": "Group & Groups",
+        "type_numbers_hint": "Type Numbers (Type just the phone no's in each line)",
+        "total_mobile_numbers": "Total Mobile Numbers: 0",
+        "mobile_number": "Mobile Number",
+        "clear_list": "Clear List",
+        "unique_numbers": "Unique Numbers",
+        "send_campaign_button": "Send Campaign"
+    }
+}

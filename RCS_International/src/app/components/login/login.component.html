@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="bg">
+    <div>
+      <div class="mt-4">
+        <div class="d-flex justify-content-end align-items-center mr-3 pt-2" style="font-size: medium;">
+          Language : English
+        </div>
+      </div>
+
+      <div class="row">
+        <section class="leftSide col-7">
+          <div class="logo pl-4 " style="position: absolute; top: -20px;">
+            <img src="../../assets/Images/logo.png"  alt="This is GreenAds_Global logo" width="130px">
+          </div>
+          <div class="left_data mt-5">
+            <div class="image d-flex justify-content-center mr-5 ">
+              <img class="profile" src="../../../assets/Images/image.jpg" alt="">
+              <div class="image_bg "></div>
+            </div>
+            <div class="w-75 row d-flex justify-content-center ml-5">
+              <div class="col-11">
+                <div class=" mt-4">
+                  <h2>Introducing Google RBM Business Messaging</h2>
+                </div>
+                <p> Sign Up now and engage your customers with rich media messages through
+                  Google RCS Business Messaging. Telinfy platform provides a varity of tools to
+                  communicate with your customer and manage you campaign effectively.</p>
+                <div>
+                  <span class="link"><a href="#" style="font-size: medium;"><strong>
+                    Sign Up Now
+                  </strong></a></span>
+                </div> <br>
+              </div>
+            </div>
+            <div class="d-flex align-items-end mt-4">
+              <span class="pl-4" style="font-size: small;">Powered By <strong
+                  style="font-weight: 900; font-size: large;">GreenAds</strong>&nbsp;<strong
+                  style="font-weight: 900; font-size: large; color: rgb(0, 226, 0);">Global</strong></span>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="rightSide col-5">
+
+          <div class=" d-flex align-items-center mt-5">
+            <form [formGroup]="frm" class="w-100 mt-5">
+              <div class="w-75">
+                <h1>Log in to your Telinfy Account</h1>
+                <div class="mt-4">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" formControlName="email" name="email" id="email">
+                    <div
+                      *ngIf="frm.controls['email'].invalid  && (frm.controls['email'].dirty || frm.controls['email'].touched)">
+                      <span style="color: red;" *ngIf="frm.controls['email'].hasError('required')">Email is
+                        Required</span>
+                      <span style="color: red;" *ngIf="frm.controls['email'].hasError('email')">Email should be in this
+                        pattern [A-Z, a-z, 123, @, a-z]</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" formControlName="pwd" name="password" id="password">
+                    <div
+                      *ngIf="frm.controls['pwd'].invalid  && (frm.controls['pwd'].dirty || frm.controls['pwd'].touched)">
+                      <span style="color: red;" *ngIf="frm.controls['pwd'].hasError('required')">Password is
+                        Required</span>
+                      <span style="color: red;" *ngIf="frm.controls['pwd'].hasError('pattern')">Password should be in
+                        between 8-15ch and the format is [A-Z, a-z, 123, !@#$%^&*]</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
+                      data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                    <input class="form-control d-none" data-recaptcha="true" required
+                      data-error="Please complete the Captcha">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="d-flex justify-content-between" style="font-size: medium;">
+                    <span><input type="checkbox" name="rememberMe"  id="rememberMe">&nbsp;&nbsp;Remember me</span>
+                    <span><a href="#" style="text-decoration: none;">Forgot password?</a></span>
+                  </div>
+                  <div class=" d-flex justify-content-center mt-4">
+                    <button type="submit" class="text-center mt-3 text-white btn w-50"
+                      style="background-color: rgb(255, 45, 202);" [routerLink]="'/nav'">Login</button>
+                  </div>
+                  <div class=" d-flex justify-content-around mt-4 pt-4">
+                    <span><a href="https://play.google.com/store/apps/details?id=com.greenads.telinfy"><img
+                          src="../assets/Images/pngwing.com.png" alt="Get app from Playstore" width="150px"></a></span>
+                    <span><a href="https://apps.apple.com/in/app/telinfy/id1670133967"><img
+                          src="../assets/Images/pngwing.com (1).png" alt="Get app from AppStore"
+                          width="150px"></a></span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,186 @@
+<div class="container-fluid">
+    <div class="toprow mt-2 pt-3 pl-4 d-flex justify-content-between">
+        <div>
+            <span class="mt-2" style="font-size: 2rem; font-weight: bold;    font-family: Lato;
+            ">
+                Campaign List
+            </span><br>
+            <span>
+                <small class="text-secondary" style="font-size:medium;">View and manage all your campaign</small>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="inp mt-4">
+        <div class="row">
+            <span class="inpBox col-lg-12 col-md-3 mt-1 col-sm-12 col-12">
+                <i class='bx bx-search bx-tada serchicn' style='color:#9fa6b2'></i>
+                <input type="text" class="searchInp form-control form-control1 form-control-lg"
+                    [(ngModel)]="inputString" placeholder="Search Campaign">
+            </span>
+            <!-- <span class="inpBox col-lg-3 col-md-3 mt-1 col-sm-12 col-12">
+                <!-- <span><strong>From</strong></span> ->
+                <input [matDatepicker]="piccker" class=" form-control form-control-lg" placeholder="From Date."
+                    [(ngModel)]="frmDate" (click)="piccker.open()">
+                <mat-datepicker #piccker></mat-datepicker>
+            </span>
+            <span class="inpBox col-lg-3 col-md-3 mt-1 col-sm-12 col-12">
+                <!-- <span><strong>To</strong></span> ->
+                <input [matDatepicker]="picker" class=" form-control form-control-lg" placeholder="To Date."
+                    [(ngModel)]="lstmDate" (click)="picker.open()">
+                <mat-datepicker #picker></mat-datepicker>
+            </span>
+            <button class=" col-lg-3 col-md-3 mt-1 col-sm-6 col-6 btn btn-sm btnn w-auto" (click)="campaignft()">Get
+                Report</button> -->
+        </div>
+    </div>
+    <br>
+    <div class="">
+        <div class="table-responsive">
+            <!-- <marquee style="font-size: 4.5rem;">Campaign List is under Process, with in Few Days it will complete.!</marquee> -->
+            <table class="table" data-aos="fade-in">
+                <thead>
+                    <tr>
+                        <th class=" pl-4" style="color: rgb(54, 38, 160);">Campaigns</th>
+                        <th class="text-center text-warning">Uploaded</th>
+                        <th class="text-center text-primary">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th class="text-center text-success">Delivered</th>
+                        <th class="text-info text-center">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th class="text-danger text-center">Un-Deliverd</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="!showRecords">
+
+
+                    <tr *ngFor="let item of main.slice().reverse() | filter:inputString;let i as index;let n = index;">
+                        <td class="d-flex justify-content-around align-items-center">
+                            <div class="ml-3 w-75">
+                                <h3 *ngIf="item.campList.campaign_name"><strong>{{item.campList
+                                        .campaign_name}}</strong></h3>
+                                <h3 *ngIf="!item.campList.campaign_name"><strong>No Campaign Name</strong></h3>
+                                <h5>{{item.campList.rcs_data}}</h5>
+                                <span class="recordDetails">
+                                    <span class="text-secondary" style="font-weight: bold;">#{{n+1}}</span>
+                                    <span class="text-secondary ml-3">Sent on</span>
+                                    <span class="text-secondary ml-2 mb-2"><i style='font-size:7px'
+                                            class='fas'>&#xf111;</i></span>
+                                    <span class="text-secondary ml-2"
+                                        style="font-weight: bold;">{{item.campList.recv_timestamp
+                                        |
+                                        date: 'MMMM d, y, h:mm a'}}</span><br>
+                                    <!-- <span class="text-secondary ml-2" style="font-weight: bold;">March 23, 2023
+                                    11:45</span><br> -->
+                                </span>
+                                <span><a class="text-success"
+                                        style="font-weight: bold;text-decoration: underline; cursor: pointer;"
+                                        (click)="downloadReport(i)">Download Report</a></span>
+                            </div>
+                            <div class="d-flex align-items-center w-25 td1Status">
+                                <span class="Cstatus CR text-center p-2 " *ngIf="item.campList.status1 == 1">Campaign
+                                    Running</span>
+                                <span class="Cstatus CNR text-danger text-center p-2 "
+                                    *ngIf="item.campList.status1 == 0">Not
+                                    Running</span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span class="text-center m-1">
+                                <h4><strong>{{item.campList.no_of_rcs}}</strong><br>
+                                    <small class="text-secondary" style="font-size: medium;">{{item.pstatus
+                                        .TotalRCSp}}
+                                        &nbsp;%</small>
+                                </h4>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="text-center m-1">
+                                <h4><strong>{{item.campList.act_rcs}}</strong><br>
+                                    <small class="text-secondary" style="font-size: medium;">{{item.pstatus
+                                        .SendRCSp}}
+                                        &nbsp;%</small>
+                                </h4>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="text-center m-1">
+                                <h4><strong>{{item.campList.delivered_rcs}}</strong><br>
+                                    <small class="text-secondary" style="font-size: medium;">{{item.pstatus
+                                        .deliverdRCSp}}
+                                        &nbsp;%</small>
+                                </h4>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="text-center m-1">
+                                <h4><strong>{{item.campList.read_rcs}}</strong><br>
+                                    <small class="text-secondary" style="font-size: medium;">{{item.pstatus
+                                        .readRCSp}}
+                                        &nbsp;%</small>
+                                </h4>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="text-center m-1">
+                                <h4><strong>{{item.campList.un_delivered_rcs}}</strong><br>
+                                    <small class="text-secondary" style="font-size: medium;">{{item.pstatus
+                                        .un_deliverdRCSp}}
+                                        &nbsp;%</small>
+                                </h4>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="showRecords">
+                    <tr>
+                        <td colspan="6">
+                            <div class="d-flex justify-content-center ">
+                                <span>
+                                    <h2 class="text-center">No Campaigns</h2>
+                                    <img src="../../../assets/bgImgs/working-with-numbers.png" alt="" height="400"
+                                        width="600">
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- <mat-accordion>
+            <div class="row w-100 d-flex justify-content-center align-item-center">
+                <div class="col-lg-5 col-md-6 col-sm-12 col-12" *ngFor="let item of items | filter:inputString">
+                    <mat-expansion-panel hideToggle class="expansion1 shadow" (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <h4>{{item.name}}</h4>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>{{item.status}}</p>
+                            </mat-panel-description>
+                            <!-- <span class="material-symbols-outlined">
+                                campaign
+                            </span> 
+                        </mat-expansion-panel-header>
+                        <div class="body1">
+                            <p>Template Type : {{item.templateType}}</p>
+                            <p>Last Update : {{item.lastUpdate}}</p>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </div>
+        </mat-accordion> -->
+
+        </div>
+
+    </div>
+</div> 
+
+<!-- <div class="main d-flex justify-content-center align-items-center">
+    <div>
+        <h4 class="display-3"><span>Campaign Reports Coming Soon.</span></h4>
+    </div>
+</div> -->

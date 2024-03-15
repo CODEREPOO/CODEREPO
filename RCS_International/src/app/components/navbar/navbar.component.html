@@ -1,0 +1,83 @@
+<nav>
+    <div class="image d-flex justify-content-center mt-4">
+        <img src="../../assets/Images/logo.png" alt="" width="130px">
+    </div>
+    <div class="leftmain">
+        <!-- <h2 class="d-flex justify-content-center text-secondary mb-0">Main Menu</h2> -->
+        <div class="">
+            <ul>
+                <li>
+                    <button type="button" id="7" #btn7 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn7.id==selectedIndex" [routerLink]="'/compose'"
+                        class="btn  btn-light text-left btn-block btn-sm mt-3" style="font-size: medium;"><lucide-icon name="send" class="mr-1" [size]="20" [strokeWidth]="2"></lucide-icon>
+                        Compose</button>
+                </li>
+                <!-- <li>
+                    <button type="button" id="1" #btn1 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn1.id==selectedIndex"
+                        class="btn  btn-light text-left btn-block btn-sm"  style="font-size: medium;"><i
+                            class="fa mr-1" style="font-size: 20px;">&#xf073;</i>
+                        Dashboard</button>
+                </li> -->
+                <!-- <li>
+                    <button type="button" id="2" #btn2 (click)="selectedbtn($event.target)"
+                        class="btn  btn-light  text-left btn-block btn-sm mt-3" [routerLink]="'/campaign'"
+                        [class.btnbg]="btn2.id==selectedIndex" style="font-size: medium;"><i style="font-size:20px"
+                            class="fa mr-1">&#xf0a1;</i>
+                        Campaign</button>
+                </li> -->
+                <li>
+                    <button type="button" id="3" #btn3 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn3.id==selectedIndex" [routerLink]="'/team-inbox'"
+                        class="btn  btn-light text-left btn-block btn-sm mt-3" style="font-size: medium;"><i
+                            class="fa fa-inbox mr-1" style="font-size: 20px;"> </i>
+                        Team Inbox</button>
+                </li>
+                <!-- <li>
+                    <button type="button" id="4" #btn4 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn4.id==selectedIndex"
+                        class="btn  btn-light text-left btn-block btn-sm mt-3"  style="font-size: medium;"><i style="font-size:20px" class="fa mr-1">&#xf298;</i>
+                        Template</button>
+                </li> -->
+                <!-- <li>
+                    <button type="button" id="5" #btn5 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn5.id==selectedIndex"
+                        class="btn  btn-light text-left btn-block btn-sm mt-3"  style="font-size: medium;"><i style="font-size:18px"
+                            class="fa-solid fa-sliders mr-1"></i>
+                        Reports</button>
+                </li> -->
+                <!-- <li>
+                    <button type="button" id="6" #btn6 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn6.id==selectedIndex"
+                        class="btn  btn-light text-left btn-block btn-sm mt-3"  style="font-size: medium;"><i style="font-size:18px"
+                            class="fa-solid fa-sliders mr-1"></i>
+                        API Documentation</button>
+                </li> -->
+                
+                <li>
+                    <button type="button" id="8" #btn8 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn8.id==selectedIndex" [routerLink]="'/smsReport'"
+                        class="btn  btn-light text-left btn-block btn-sm mt-3" style="font-size: medium;"><lucide-icon name="area-chart" [strokeWidth]="2" class="mr-1" [size]="20" ></lucide-icon>
+                        SMS-Report</button>
+                </li>
+                <li>
+                    <button type="button" id="9" #btn9 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn9.id==selectedIndex" class="btn  btn-light text-left btn-block btn-sm mt-3" style="font-size: medium;" [routerLink]="'/credit-Bal'">
+                        <lucide-icon name="gauge" [size]="20" [strokeWidth]="2" class="mr-1"></lucide-icon>
+                        Credit Balance</button>
+                </li>
+                <li>
+                    <button type="button" id="10" #btn10 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn10.id==selectedIndex" class="btn  btn-light text-left btn-block btn-sm mt-3" style="font-size: medium;" [routerLink]="'/apikey'">
+                        <lucide-icon name="link" [size]="20" [strokeWidth]="2" class="mr-1"></lucide-icon>
+                        API-KEY</button>
+                </li>
+                <!-- <li>
+                    <button type="button" id="11" #btn11 (click)="selectedbtn($event.target)"
+                        [class.btnbg]="btn11.id==selectedIndex" class="btn  btn-light text-left btn-block btn-sm mt-3" style="font-size: medium;" [routerLink]="'/purchase'">Purchase</button>
+                </li> -->
+            </ul>
+
+        </div>
+    </div>
+</nav>

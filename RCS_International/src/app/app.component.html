@@ -1,0 +1,486 @@
+<div *ngIf="!login ">
+  <!-- <mat-drawer-container class="matContainer" *ngIf="!login "> -->
+    <!-- <mat-drawer #drawer mode="side">
+      <app-navbar (click)="drawer.toggle()"></app-navbar>
+    </mat-drawer>
+    <mat-drawer-content class="mt-3" style="height: 100vh;">
+      <div class="d-flex justify-content-between">
+        <button mat-icon-button class="ml-1" (click)="drawer.toggle()"><lucide-icon name="menu"
+            [size]="40" [strokeWidth]="2.25"></lucide-icon>
+        </button>
+        <div class="dropdown mt-2 mr-4">
+          <button class="btn ml-4 text-info" data-toggle="dropdown"><lucide-icon name="user-circle-2" class="mr-1" [size]="20" [strokeWidth]="1.57" [absoluteStrokeWidth]="true"></lucide-icon>Hello, Raju<i style="font: size 20px;"
+              class="fa ml-2">&#xf107;</i></button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item btn btn-sm" (click)="log_out()"><lucide-icon name="power" [strokeWidth]="1.8" [size]="18" class="mr-1" [absoluteStrokeWidth]="true"></lucide-icon>Log-Out</button>
+          </div>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </mat-drawer-content> -->
+    <div class="main">
+      <div class="topNav">
+        <img src="../assets/Images/{{pagelogo}}" alt="" class="logoo">
+        <div class="d-lg-none d-xl-none">
+          <button class="btn py-3" (click)="opennav()"><lucide-icon name="menu" [size]="30"
+              [strokeWidth]="2"></lucide-icon></button>
+        </div>
+        <div class="topNav-btn-g d-inline-flex align-items-center">
+          <span class="mr-4">
+            <!-- <mat-form-field appearance="outline" class="w-auto">
+              <!-- <mat-label></mat-label> ->
+              <mat-select>
+                  <mat-option value="en">Eng</mat-option>
+                  <mat-option value="ar">Ara</mat-option>
+              </mat-select>
+            </mat-form-field> -->
+            <!-- use down one -->
+            <!-- <select name="lang" class="form-control form-control-sm w-auto" id="lang">
+              <option value="en" selected>EN</option>
+              <option value="ar">AR</option>
+            </select> -->
+          </span>
+          <span class="mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="21" viewBox="0 0 27 21" fill="none">
+              <path
+                d="M15.73 11.6599C14.73 11.6599 13.8801 11.3099 13.1801 10.6099C12.4801 9.90995 12.13 9.05995 12.13 8.05995C12.13 7.05995 12.4801 6.20994 13.1801 5.50994C13.8801 4.80994 14.73 4.45995 15.73 4.45995C16.73 4.45995 17.58 4.80994 18.28 5.50994C18.98 6.20994 19.33 7.05995 19.33 8.05995C19.33 9.05995 18.98 9.90995 18.28 10.6099C17.58 11.3099 16.73 11.6599 15.73 11.6599ZM7.31995 15.2599C6.65995 15.2599 6.08999 15.0199 5.62 14.5499C5.15 14.0799 4.91003 13.5099 4.91003 12.8499V3.22995C4.91003 2.56995 5.15 1.99995 5.62 1.52995C6.08999 1.05995 6.65995 0.819946 7.31995 0.819946H24.15C24.81 0.819946 25.38 1.05995 25.85 1.52995C26.32 1.99995 26.5601 2.56995 26.5601 3.22995V12.8499C26.5601 13.5099 26.32 14.0799 25.85 14.5499C25.38 15.0199 24.81 15.2599 24.15 15.2599H7.31995ZM9.71997 12.8599H21.74C21.74 12.1999 21.98 11.6299 22.45 11.1599C22.92 10.6899 23.49 10.4499 24.15 10.4499V5.63995C23.49 5.63995 22.92 5.39995 22.45 4.92995C21.98 4.45995 21.74 3.88995 21.74 3.22995H9.71997C9.71997 3.88995 9.48001 4.45995 9.01001 4.92995C8.54001 5.39995 7.97006 5.63995 7.31006 5.63995V10.4499C7.97006 10.4499 8.54001 10.6899 9.01001 11.1599C9.48001 11.6299 9.71997 12.1999 9.71997 12.8599ZM22.9399 20.0699H2.51001C1.85001 20.0699 1.28006 19.8299 0.810059 19.3599C0.340059 18.8899 0.0999756 18.3199 0.0999756 17.6599V4.43995H2.5V17.6599H22.9301V20.0699H22.9399Z"
+                fill="#7DC688" />
+            </svg>
+            <span class="topNav-btn ml-2">€ {{RCS_Credits}}</span>
+          </span>
+          <a (click)="log_out()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 21 21" fill="none">
+              <path
+                d="M2.42004 20.4799C1.81004 20.4799 1.27998 20.2599 0.849976 19.8299C0.409976 19.3899 0.199951 18.8699 0.199951 18.2599V2.65994C0.199951 2.04994 0.419976 1.51994 0.849976 1.08994C1.28998 0.649943 1.81004 0.439941 2.42004 0.439941H10.22V2.66994H2.42004V18.2699H10.22V20.4999H2.42004V20.4799ZM14.6801 16.0199L13.15 14.3999L15.99 11.5599H6.88V9.32994H15.99L13.15 6.48994L14.6801 4.86994L20.25 10.4399L14.6801 16.0199Z"
+                fill="#F26F7B" />
+            </svg>
+            <span class="topNav-btn ml-1">Log out</span>
+          </a>
+        </div>
+      </div>
+      <div class="downpart">
+        <!-- <div class="p-2" style="height: 100%;"> -->
+        <div class="sidebar" id="side_nav">
+          <div class="header-box d-lg-none d-xl-none px-2 pt-3 pb-4 d-flex justify-content-between">
+            <img src="../assets/Images/{{pagelogo}}" class="mx-auto d-block d-lg-none d-xl-none" width="130px" alt="">
+            <button class="btn menuBtn d-block d-lg-none d-xl-none open-btn close-btn px-1 py-0" (click)="removenav()"
+              id="menu" style="font-size: xx-large;">&times;</button>
+          </div>
+
+          <div class="navv">
+            <ul>
+              <!-- <label class="ml-2 mb-1 pb-0 text-blue"><strong>Campaigns</strong></label> -->
+              <!-- <hr class="mt-0 p-0"> -->
+              <li class="navBtn">
+                <a type="button"
+                  class="btnn btn text-decoration-none d-flex align-items-center justify-content-between text-left btn-block "
+                  [class.btnbg]="btn7.id==selectedIndex ">
+                  <!-- [class.btnbg]="btn7.id==selectedIndex || btn2.id==selectedIndex"> -->
+                  <span class="d-flex align-items-center">
+                    <span class="material-symbols-outlined icn"
+                    [class.btn_focus]="btn7.id==selectedIndex">
+                    <!-- [class.btn_focus]="btn7.id==selectedIndex || btn2.id==selectedIndex"> -->
+                      send
+                    </span>
+                    <span [class.btnbg]="btn7.id==selectedIndex">Campaign</span>
+                    <!-- <span [class.btnbg]="btn7.id==selectedIndex || btn2.id==selectedIndex">Campaign</span> -->
+                  </span>
+                  <span class="material-symbols-outlined icn"
+                    [class.btn_focus]="btn7.id==selectedIndex ">
+                    <!-- [class.btn_focus]="btn7.id==selectedIndex || btn2.id==selectedIndex"> -->
+                    expand_more
+                  </span>
+                </a>
+                <div class="navMenu">
+                  <a type="button" id="7" #btn7 (click)="selectedbtn($event.target)" [routerLink]="'/campaign'"
+                    class="btnn btn d-flex align-items-center dropdown-item text-decoration-none  text-left btn-block ">
+                    <!-- <span class="icn1" [class.btn_focus]="btn7.id==selectedIndex"
+                        style="width: 24.94px; height: 18.16px;"></span> -->
+                    <span class="material-symbols-outlined icn">
+                      campaign
+                    </span>
+                    <span [class.btnbg]="btn7.id==selectedIndex">Campaign</span></a>
+                  <!-- <a type="button" id="2" #btn2 (click)="selectedbtn($event.target)" [routerLink]="'/dynamic-campaign'"
+                    class="btnn btn text-decoration-none d-flex align-items-center  dropdown-item d-flex align-items-center  text-left btn-block mt-3">
+                    <span class="material-symbols-outlined icn">
+                      badge
+                    </span>
+                    <span [class.btnbg]="btn2.id==selectedIndex">Dynamic Campaign</span></a> -->
+                </div>
+              </li>
+              <!-- <li>
+                  <a type="button" id="2" #btn2 (click)="selectedbtn($event.target)" [class.btnbg]="btn2.id==selectedIndex"
+                    [routerLink]="'/campaignList'"
+                    class="btnn btn text-decoration-none d-flex align-items-center  text-left btn-block mt-3"
+                    >
+                    <!-- <span class=" d-flex align-items-center"> 
+                <span class="material-symbols-outlined mr-2">
+                  speaker_notes
+                </span>
+                Campaign List
+                <!-- </span> 
+                </a>
+                </li> -->
+              <!-- <li>
+                  <a type="button" id="3" #btn3 (click)="selectedbtn($event.target)"
+                    [class.btnbg]="btn3.id==selectedIndex" [routerLink]="'/team-inbox'"
+                    class="btnn btn text-decoration-none  text-left btn-block  mt-3" ><i
+                      class="fa fa-inbox mr-1" style="font-size: 20px;"> </i>
+                    Team Inbox</a>
+                </li> -->
+              <li class="navBtn">
+                <!-- <li class="navBtn"> -->
+                <!-- <a class=" btnn btn text-decoration-none  text-left d-flex justify-content-start btn-block  mt-3"
+                    ><span class="material-symbols-outlined">
+                      lab_profile
+                    </span>
+                    <span class=" ml-2">Reports</span></a>
+                  <div class="navMenu"> -->
+                <a type="button"
+                  class="btnn btn text-decoration-none  d-flex align-items-center justify-content-between  text-left btn-block  mt-3">
+                  <span class="d-flex align-items-center ">
+                    <span class="material-symbols-outlined icn"
+                      [class.btn_focus]="btn8.id==selectedIndex || btn15.id==selectedIndex">
+                      tune
+                    </span>
+                    <span [class.btnbg]="btn8.id==selectedIndex || btn15.id==selectedIndex">Reports</span>
+                  </span>
+                  <span class="material-symbols-outlined icn"
+                    [class.btn_focus]="btn8.id==selectedIndex || btn15.id==selectedIndex">
+                    expand_more
+                  </span>
+                </a>
+                <div class="navMenu">
+                  <a type="button" id="8" #btn8 (click)="selectedbtn($event.target)" [routerLink]="'/RCS-Report'"
+                    class="btnn btn d-flex align-items-center dropdown-item text-decoration-none  text-left btn-block ">
+                    <!-- <span class="icn1" [class.btn_focus]="btn7.id==selectedIndex"
+                          style="width: 24.94px; height: 18.16px;"></span> -->
+                    <span class="material-symbols-outlined icn">
+                      tune
+                    </span>
+                    <span [class.btnbg]="btn8.id==selectedIndex">Reports</span></a>
+                  <a type="button" id="15" #btn15 (click)="selectedbtn($event.target)"
+                    [routerLink]="'/campaign-reports'"
+                    class="btnn btn text-decoration-none d-flex align-items-center  dropdown-item d-flex align-items-center  text-left btn-block mt-3">
+                    <span class="material-symbols-outlined icn">
+                      badge
+                    </span>
+                    <span [class.btnbg]="btn15.id==selectedIndex">Campaign Reports</span></a>
+                </div>
+                <!-- <a type="button" id="12" #btn12 (click)="selectedbtn($event.target)"
+                      [class.btnbg]="btn12.id==selectedIndex"
+                      class="btnn btn dropdown-item text-decoration-none  text-left btn-block  mt-3"
+                       [routerLink]="'/download-center'">
+                      <lucide-icon name="download" [strokeWidth]="2" class="mr-1" [size]="20"></lucide-icon>
+                      Download Center</a> -->
+                <!-- </div> -->
+                <!-- <a type="button" id="8" #btn8 (click)="selectedbtn($event.target)"
+                    [class.btnbg]="btn8.id==selectedIndex" [routerLink]="'/RCS-Report'"
+                    class="btnn btn text-decoration-none  text-left btn-block  mt-3"
+                    ><lucide-icon name="area-chart" [strokeWidth]="2" class="mr-1"
+                      [size]="20"></lucide-icon>
+                    Reports</a> -->
+              </li>
+              <li>
+                <a type="button" id="12" #btn12 (click)="selectedbtn($event.target)"
+                  class="btnn btn text-decoration-none d-flex align-items-center text-left mt-3"
+                  [routerLink]="'/download-center'">
+                  <span class="material-symbols-outlined icn" [class.btn_focus]="btn12.id==selectedIndex">
+                    download
+                  </span> <span [class.btnbg]="btn12.id==selectedIndex">Download Center</span></a>
+              </li>
+              <!-- <li>
+                  <a type="button" id="10" #btn10 (click)="selectedbtn($event.target)" [class.btnbg]="btn10.id==selectedIndex"
+                    class="btn text-decoration-none  text-left btn-block  mt-3" 
+                    [routerLink]="'/apikey'">
+                    <lucide-icon name="link" [size]="20" [strokeWidth]="2" class="mr-1"></lucide-icon>
+                    API-KEY</a>
+                </li> -->
+              <li>
+                <a type="button" id="11" #btn11 (click)="selectedbtn($event.target)"
+                  class="btnn btn text-decoration-none  text-left btn-block d-flex align-items-center mt-3"
+                  [routerLink]="'/temlate_List'">
+                  <span class="material-symbols-outlined icn" [class.btn_focus]="btn11.id==selectedIndex">
+                    post_add
+                  </span> <span [class.btnbg]="btn11.id==selectedIndex">Template</span></a>
+              </li>
+              <!-- <li>
+                  <a type="button" id="12" #btn12 (click)="selectedbtn($event.target)"
+                    [class.btnbg]="btn12.id==selectedIndex"
+                    class="btnn btn text-decoration-none  text-left btn-block  mt-3" 
+                    [routerLink]="'/download-center'">
+                    <lucide-icon name="download" [strokeWidth]="2" class="mr-1" [size]="20"></lucide-icon>
+                    Download Center</a>
+                </li> -->
+              <!-- <label class="ml-2 mb-1 mt-5 pb-0 text-blue"><strong>Settings</strong></label> -->
+              <!-- <hr class="mt-0 p-0"> -->
+              <!-- <li>
+                <a type="button" id="13" #btn13 (click)="selectedbtn($event.target)"
+                  class="btnn btn text-decoration-none  text-left btn-block d-flex align-items-center mt-3"
+                  [routerLink]="'/uploadExcelFile'">
+                  <span class="material-symbols-outlined icn" [class.btn_focus]="btn13.id==selectedIndex">
+                    backup_table
+                  </span> <span [class.btnbg]="btn13.id==selectedIndex">Excel File</span></a>
+              </li> -->
+
+            </ul>
+            <ul>
+              <!-- <li>
+                <a type="button" id="15" #btn15 (click)="selectedbtn($event.target)"
+                  class=" btn text-decoration-none text-left btn-block d-flex align-items-center mt-3 btnn">
+                  <span class="material-symbols-outlined icn" [class.btn_focus]="btn15.id==selectedIndex">
+                    account_circle
+                  </span>
+                  <span [class.btnbg]="btn15.id==selectedIndex">Profile</span></a>
+              </li> -->
+              <li>
+                <a type="button" id="14" #btn14 (click)="selectedbtn($event.target)"
+                  class="btnn btn text-decoration-none  text-left btn-block d-flex align-items-center justify-content-between mt-3"
+                  [routerLink]="'/settings'">
+                  <span class="d-flex align-items-center">
+                    <span class="material-symbols-outlined icn" [class.btn_focus]="btn14.id==selectedIndex">
+                      account_circle
+                    </span>
+                    <!-- <span class="material-symbols-outlined icn" [class.btn_focus]="btn14.id==selectedIndex" style='background: linear-gradient(to right top, rgb(255, 0, 255),rgba(40, 155, 201, 0.586),rgb(236, 5, 225));
+                    -webkit-background-clip: text;
+                    -moz-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color:transparent;'>
+                      account_circle
+                    </span> -->
+                    <span [class.btnbg]="btn14.id==selectedIndex">Hello {{employeeName}}</span>
+                  </span>
+                  <!-- <span><i style='background: linear-gradient(to right top, rgb(255, 0, 255),rgba(40, 155, 201, 0.586),rgb(236, 5, 225));
+                    -webkit-background-clip: text;
+                    -moz-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color:transparent; font-size: x-large;' class='bx bx-party bx-tada' ></i>
+                    </span> -->
+                </a>
+              </li>
+              <li *ngIf="RCSUSER">
+                <a type="button" id="16" #btn16 (click)="selectedbtn($event.target)"
+                  class="btnn btn text-decoration-none  text-left btn-block d-flex align-items-center justify-content-between mt-3"
+                  href="https://telinfy-rcs.readme.io/reference/getting-started-with-your-api" target="_blank">
+                  <span class="d-flex align-items-center">
+                    <span class="material-symbols-outlined icn" [class.btn_focus]="btn16.id==selectedIndex">
+                      local_library
+                    </span>
+                    <!-- <span class="material-symbols-outlined icn" [class.btn_focus]="btn14.id==selectedIndex" style='background: linear-gradient(to right top, rgb(255, 0, 255),rgba(40, 155, 201, 0.586),rgb(236, 5, 225));
+                    -webkit-background-clip: text;
+                    -moz-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color:transparent;'>
+                      account_circle
+                    </span> -->
+                    <span [class.btnbg]="btn15.id==selectedIndex">Developers Space</span>
+                  </span>
+                  <!-- <span><i style='background: linear-gradient(to right top, rgb(255, 0, 255),rgba(40, 155, 201, 0.586),rgb(236, 5, 225));
+                    -webkit-background-clip: text;
+                    -moz-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color:transparent; font-size: x-large;' class='bx bx-party bx-tada' ></i>
+                    </span> -->
+                </a>
+              </li>
+              <!-- <li>
+                <a type="button" id="9" #btn9 (click)="selectedbtn($event.target)"
+                  class="btnn btn text-decoration-none  text-left btn-block d-flex align-items-center mt-3"
+                  [routerLink]="'/settings'">
+                  <span class="material-symbols-outlined icn" [class.btn_focus]="btn9.id==selectedIndex">
+                    settings
+                  </span>
+                  <span [class.btnbg]="btn9.id==selectedIndex">Settings</span></a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <!-- </div> -->
+        <div class="w-100" style="height: 93vh;overflow-y: scroll;">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  <!-- </mat-drawer-container> -->
+</div>
+
+
+<!--  -->
+
+
+<div class="container-fluid" *ngIf="login">
+  <div class="bg">
+    <div>
+      <div class="mt-0">
+        <div class="d-flex justify-content-end align-items-center mr-3 pt-4" style="font-size: medium;">
+          Language : English
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <div class="row">
+            <div class="leftSide col-lg-7 col-sm-12 col-md-7" data-aos="fade">
+              <div class="logo pl-4 " style="position: absolute; top: -20px;">
+                <img src="../assets/Images/{{pagelogo}}" alt="Your Company Logo" width="130px">
+              </div>
+              <div class="left_data mt-5">
+                <div class="image d-flex justify-content-center mr-5 ">
+                  <img class="profile" src="../../../assets/Images/image.jpg" alt="">
+                  <div class="image_bg "></div>
+                </div>
+                <div class="w-75 row d-flex justify-content-center ml-5">
+                  <div class="col-11" style="font-family: Lato;">
+                    <div class=" mt-4">
+                      <h2 style="font-weight: bold;">Introducing Google RBM Business Messaging</h2>
+                    </div>
+                    <p> Sign Up now and engage your customers with rich media messages through
+                      Google RCS Business Messaging. <span *ngIf="!OurPlatform">Telinfy</span><span *ngIf="OurPlatform">Our</span> platform provides a varity of tools to
+                      communicate with your customer and manage you campaign effectively.</p>
+                    <div  *ngIf="RCSUSER">
+                      <span class="link"><a href="https://www.greenadsglobal.com/contact/"><strong>
+                            Sign Up Now
+                          </strong></a></span>
+                    </div> <br>
+                  </div>
+                </div>
+              </div>
+              <div class="cmpy d-flex align-items-end mt-5" *ngIf="RCSUSER">
+                <span class="pl-4" style="font-size: small;font-family: Lato;">Powered By <strong
+                    style="font-weight: 900; font-size: large;">GreenAds</strong>&nbsp;<strong
+                    style="font-weight: 900; font-size: large; color: rgb(0, 226, 0);">Global</strong></span>
+              </div>
+            </div>
+
+            <div class="rightSide col-lg-4 col-md-5 col-sm-12 mt-5" data-aos="fade-in">
+
+              <div class=" d-flex align-items-center ml-1 mt-5">
+                <form [formGroup]="frm" class="w-100 mt-5" (ngSubmit)="onSubmit()">
+                  <div class="w-100">
+                    <h1 style="font-family: Lato;font-weight: bold;" *ngIf="RCSUSER">Log in to your Telinfy Account</h1>
+                    <h1 style="font-family: Lato;font-weight: bold;" *ngIf="!RCSUSER">Log in to your RCS Account</h1>
+                    <div class="mt-4">
+                      <div class="form-group">
+                        <label for="name">User Name</label>
+                        <input type="text" class="form-control form-control1" style="font-size: 18px;"
+                          formControlName="name" name="name" id="name">
+                        <div
+                          *ngIf="frm.controls['name'].invalid  && (frm.controls['name'].dirty || frm.controls['name'].touched)">
+                          <span style="color: red;" *ngIf="frm.controls['name'].hasError('required')"><strong>User Name
+                              is
+                              Required</strong></span>
+                          <!-- <span style="color: red;" *ngIf="frm.controls['name'].hasError('')">Email should be in
+                            this
+                            pattern [A-Z, a-z, 123, &#64;]</span> -->
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control form-control1" formControlName="psw" name="password"
+                          id="password">
+                        <div
+                          *ngIf="frm.controls['psw'].invalid  && (frm.controls['psw'].dirty || frm.controls['psw'].touched)">
+                          <span style="color: red;" *ngIf="frm.controls['psw'].hasError('required')"><strong>Password is
+                              Required</strong></span>
+                          <!-- <span style="color: red;" *ngIf="frm.controls['name'].hasError('')">Email should be in
+                            this
+                            pattern [A-Z, a-z, 123, &#64;]</span> -->
+                        </div>
+
+                      </div>
+                      <!-- <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
+                          data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                        <input class="form-control d-none" data-recaptcha="true" required
+                          data-error="Please complete the Captcha">
+                        <div class="help-block with-errors"></div>
+                      </div> -->
+                      <div class="d-flex justify-content-between" style="font-size: medium;">
+                        <span class="d-inline-flex">
+                          <input type="checkbox" name="rememberMe" style="width: 20px; margin-bottom: 10px;"
+                            id="rememberMe">
+                          <label for="rememberMe">&nbsp;&nbsp;Remember me</label>
+                        </span>
+                        <span class="link"><a href="#" style="text-decoration: none;" data-toggle="modal"
+                            data-target="#myModal"><strong>Forgot password?</strong></a></span>
+                      </div>
+                      <div class="alert alert-danger alert-dismissible" *ngIf="errorMessage">
+                        <button type="button" class="close" id="alertClose" data-dismiss="alert">&times;</button>
+                          <strong>{{errorMessage}}</strong>
+                      </div>
+                      <div class=" d-flex justify-content-center mt-4" *ngIf="RCSUSER">
+                        <button type="submit" class="text-center mt-3 text-white btn w-50"
+                          style="background-color: rgb(255, 45, 202);font-size: large; letter-spacing: 0.5mm;"><strong>Login</strong></button>
+                      </div>
+                      <div class=" d-flex justify-content-center mt-4" *ngIf="!RCSUSER">
+                        <button type="submit" class="text-center mt-3 text-white btn btn-primary w-50"
+                        style="font-size: larger;letter-spacing: 0.3mm;"><strong>Login</strong></button>
+                        <!-- style="background-color: rgb(3, 56, 233);font-size: large; letter-spacing: 0.5mm;"><strong>Login</strong></button> -->
+                      </div>
+
+                      <div class=" d-flex justify-content-around mt-4 ml-1 mb-5 pt-4" *ngIf="RCSUSER">
+                        <span><a href="https://play.google.com/store/apps/details?id=com.greenads.telinfy"><img
+                              src="../assets/Images/pngwing.com.png" alt="Get app from Playstore"
+                              width="150px"></a></span>
+                        <span><a href="https://apps.apple.com/in/app/telinfy/id1670133967"><img
+                              src="../assets/Images/pngwing.com(1).png" alt="Get app from AppStore"
+                              width="150px"></a></span>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content  shadow ">
+
+      <!-- Modal Header -->
+      <form [formGroup]="ForgFrm">
+        <div class="modal-header p-4" *ngIf="!emailSendSuccess">
+          <h4 class="modal-title text-danger display-4"><span>Forget Password</span></h4>
+          <button type="button" class="close" data-dismiss="modal"><span style="font-weight: 900;"
+              class="material-symbols-outlined">
+              close
+            </span></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body d-flex justify-content-center">
+          <div class="forgetForm w-75 pt-4 pb-4">
+            <div class="form-group" *ngIf="!emailSendSuccess">
+              <label for="mailid">
+                <h5>Email ID</h5>
+              </label>
+              <input type="email" name="mailid" id="mailid" placeholder="Please Enter Email ID."
+                class="form-control form-control-lg" formControlName="emailid">
+            </div>
+            <div class="d-flex justify-content-center align-items-center" *ngIf="emailSendSuccess">
+              <h2 class="display-4"><strong>A Temporary Password was forwarded to given Email-ID.</strong></h2>
+              <img src="../assets/bgImgs/verified.gif" width="150" height="100">
+              <button id="clse" data-dismiss="modal" style="overflow: hidden;position: absolute;"></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer" *ngIf="!emailSendSuccess">
+          <button class="btn btn-success" (click)="SendEmailFrgPassword()" [disabled]="!ForgFrm.valid">Send
+            Password</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

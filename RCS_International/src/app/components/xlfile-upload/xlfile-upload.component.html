@@ -1,0 +1,48 @@
+<div class="uploadBox mt-5">
+    <div class="row w-100">
+        <div class="col-lg-1 col-md-2 col-sm-1 col-1"></div>
+        <div class="d-flex justify-content-center col-lg-9 col-md-9 col-sm-11 col-11">
+            <mat-card class="w-100" style="background-color: rgb(255, 255, 255); border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        ">
+                <mat-card-header class="bg-secondary pb-2 text-white"
+                    style="border-top-left-radius: 20px; border-top-right-radius: 20px; font-size: 2rem;">
+                    Upload Excel
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <mat-card-content class="d-flex justify-content-center w-100 mt-3">
+                    <div class="w-100 p-3">
+                        <form>
+                            <div class="input-group input-group-lg mb-3 d-flex align-items-center ">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text bg-secondary text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Upload
+                                        Excel
+                                        File&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                </div>
+                                <span class="form-control">
+                                    <input type="file" (change)="fileUpload($event)" name="uploadfile" id="uploadfile">
+                                    <label for="uploadfile">
+                                        <span *ngIf="!fileName">Upload File... <lucide-icon class="mb-1 ml-1"
+                                                name="upload" [color]="'tomato'" [size]="22"
+                                                [strokeWidth]="3"></lucide-icon> </span>
+                                        <span *ngIf="fileName" class="display-1"
+                                            style="font-size: 20px;">{{fileName}}</span>
+                                    </label>
+                                </span>
+                            </div>
+                            <p class="err text-center" *ngIf="fileErr">{{fileErr}}</p>
+                            <div class="d-flex justify-content-end mt-4 mr-5">
+                                <button (click)="uploadToServer()"
+                                    class="btn btn-outline-primary pl-5 pr-5">Upload</button>
+                            </div>
+                            <p class="succ text-center text-success" *ngIf="btnName == 'File Uploaded Successfully'">
+                                <lucide-icon name="file-check" [size]="22" class="mr-1" [strokeWidth]="2.5"
+                                    [absoluteStrokeWidth]="true"></lucide-icon>{{btnName}}
+                            </p>
+                        </form>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
